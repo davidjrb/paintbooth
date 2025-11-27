@@ -1,0 +1,4455 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="34.03" TargetName="MainProgram" TargetType="Program" ContainsContext="true" ExportDate="Mon Oct 27 09:59:23 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="Abas_PaintBooth">
+<DataTypes Use="Context">
+</DataTypes>
+<Modules Use="Context">
+<Module Use="Reference">
+</Module>
+<Module Use="Reference">
+</Module>
+<Module Use="Reference">
+</Module>
+<Module Use="Reference">
+</Module>
+<Module Use="Reference">
+</Module>
+<Module Use="Reference">
+</Module>
+<Module Use="Reference" Name="Local">
+</Module>
+</Modules>
+<Tags Use="Context">
+<Tag Name="B1_Bake_Time" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[2.50000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="25.0"/>
+</Data>
+</Tag>
+<Tag Name="B1_Bake_Time_ACC" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="B1_Purge_Time" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[1.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.0"/>
+</Data>
+</Tag>
+<Tag Name="B1_Purge_Time_ACC" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="B1_Runtime" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[3.59999990e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="3.6"/>
+</Data>
+</Tag>
+<Tag Name="B2_Bake_Time" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[1.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="10.0"/>
+</Data>
+</Tag>
+<Tag Name="B2_Bake_Time_ACC" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="B2_Purge_Time" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[1.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.0"/>
+</Data>
+</Tag>
+<Tag Name="B2_Purge_Time_ACC" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="B2_Runtime" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[3.79999995e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="3.8"/>
+</Data>
+</Tag>
+<Tag Name="BC_Off_1" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="BC_Off_2" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="BC_Off_3" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Both_Bake_Time" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[1.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="10.0"/>
+</Data>
+</Tag>
+<Tag Name="Both_Bake_Time_ACC" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="Both_Purge_Time" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[1.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.0"/>
+</Data>
+</Tag>
+<Tag Name="Both_Purge_Time_ACC" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="Both_Runtime" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[2.12999992e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="21.3"/>
+</Data>
+</Tag>
+<Tag Name="Clear" TagType="Base" DataType="INT" Dimensions="100" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="INT" Dimensions="100" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="0"/>
+<Element Index="[32]" Value="0"/>
+<Element Index="[33]" Value="0"/>
+<Element Index="[34]" Value="0"/>
+<Element Index="[35]" Value="0"/>
+<Element Index="[36]" Value="0"/>
+<Element Index="[37]" Value="0"/>
+<Element Index="[38]" Value="0"/>
+<Element Index="[39]" Value="0"/>
+<Element Index="[40]" Value="0"/>
+<Element Index="[41]" Value="0"/>
+<Element Index="[42]" Value="0"/>
+<Element Index="[43]" Value="0"/>
+<Element Index="[44]" Value="0"/>
+<Element Index="[45]" Value="0"/>
+<Element Index="[46]" Value="0"/>
+<Element Index="[47]" Value="0"/>
+<Element Index="[48]" Value="0"/>
+<Element Index="[49]" Value="0"/>
+<Element Index="[50]" Value="0"/>
+<Element Index="[51]" Value="0"/>
+<Element Index="[52]" Value="0"/>
+<Element Index="[53]" Value="0"/>
+<Element Index="[54]" Value="0"/>
+<Element Index="[55]" Value="0"/>
+<Element Index="[56]" Value="0"/>
+<Element Index="[57]" Value="0"/>
+<Element Index="[58]" Value="0"/>
+<Element Index="[59]" Value="0"/>
+<Element Index="[60]" Value="0"/>
+<Element Index="[61]" Value="0"/>
+<Element Index="[62]" Value="0"/>
+<Element Index="[63]" Value="0"/>
+<Element Index="[64]" Value="0"/>
+<Element Index="[65]" Value="0"/>
+<Element Index="[66]" Value="0"/>
+<Element Index="[67]" Value="0"/>
+<Element Index="[68]" Value="0"/>
+<Element Index="[69]" Value="0"/>
+<Element Index="[70]" Value="0"/>
+<Element Index="[71]" Value="0"/>
+<Element Index="[72]" Value="0"/>
+<Element Index="[73]" Value="0"/>
+<Element Index="[74]" Value="0"/>
+<Element Index="[75]" Value="0"/>
+<Element Index="[76]" Value="0"/>
+<Element Index="[77]" Value="0"/>
+<Element Index="[78]" Value="0"/>
+<Element Index="[79]" Value="0"/>
+<Element Index="[80]" Value="0"/>
+<Element Index="[81]" Value="0"/>
+<Element Index="[82]" Value="0"/>
+<Element Index="[83]" Value="0"/>
+<Element Index="[84]" Value="0"/>
+<Element Index="[85]" Value="0"/>
+<Element Index="[86]" Value="0"/>
+<Element Index="[87]" Value="0"/>
+<Element Index="[88]" Value="0"/>
+<Element Index="[89]" Value="0"/>
+<Element Index="[90]" Value="0"/>
+<Element Index="[91]" Value="0"/>
+<Element Index="[92]" Value="0"/>
+<Element Index="[93]" Value="0"/>
+<Element Index="[94]" Value="0"/>
+<Element Index="[95]" Value="0"/>
+<Element Index="[96]" Value="0"/>
+<Element Index="[97]" Value="0"/>
+<Element Index="[98]" Value="0"/>
+<Element Index="[99]" Value="0"/>
+</Array>
+</Data>
+</Tag>
+<Tag Name="F0" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PLC Active]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[-32768]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="-32768"/>
+</Data>
+</Tag>
+<Tag Name="F1" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[First Scan]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Jumper" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="K" TagType="Base" DataType="DINT" Dimensions="50" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand="[5]">
+<![CDATA[Exhaust Fan 1 Air Proving Count]]>
+</Comment>
+<Comment Operand="[7]">
+<![CDATA[Supply Fan 1 High Air Pressure Count]]>
+</Comment>
+<Comment Operand="[8]">
+<![CDATA[Supply Fan 1 Low Air Pressure Count]]>
+</Comment>
+<Comment Operand="[9]">
+<![CDATA[Supply Fan 1 Air Proving Count]]>
+</Comment>
+<Comment Operand="[35]">
+<![CDATA[Exhaust Fan 2 Air Proving Count]]>
+</Comment>
+<Comment Operand="[37]">
+<![CDATA[Supply Fan 2 High Air Pressure Count]]>
+</Comment>
+<Comment Operand="[38]">
+<![CDATA[Supply Fan 2 Low Air Pressure Count]]>
+</Comment>
+<Comment Operand="[39]">
+<![CDATA[Supply Fan 2 Air Proving Count]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[[0,0,0,0,0,29,0,0,6,699,36,0,0,0,0,38,0,213,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12988,0,0,0,27,0,0,0,0,0,0,0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="DINT" Dimensions="50" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="29"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="6"/>
+<Element Index="[9]" Value="699"/>
+<Element Index="[10]" Value="36"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="38"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="213"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="0"/>
+<Element Index="[32]" Value="0"/>
+<Element Index="[33]" Value="0"/>
+<Element Index="[34]" Value="0"/>
+<Element Index="[35]" Value="12988"/>
+<Element Index="[36]" Value="0"/>
+<Element Index="[37]" Value="0"/>
+<Element Index="[38]" Value="0"/>
+<Element Index="[39]" Value="27"/>
+<Element Index="[40]" Value="0"/>
+<Element Index="[41]" Value="0"/>
+<Element Index="[42]" Value="0"/>
+<Element Index="[43]" Value="0"/>
+<Element Index="[44]" Value="0"/>
+<Element Index="[45]" Value="0"/>
+<Element Index="[46]" Value="0"/>
+<Element Index="[47]" Value="0"/>
+<Element Index="[48]" Value="0"/>
+<Element Index="[49]" Value="0"/>
+</Array>
+</Data>
+</Tag>
+<Tag Name="M" TagType="Base" DataType="INT" Dimensions="110" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand="[0].0">
+<![CDATA[Booth 1 System Control Enabled?]]>
+</Comment>
+<Comment Operand="[0].1">
+<![CDATA[Booth 1 System Disable 
+HMI Input????]]>
+</Comment>
+<Comment Operand="[0].2">
+<![CDATA[Booth 1 System Enable 
+HMI Input????]]>
+</Comment>
+<Comment Operand="[0].3">
+<![CDATA[Exhauts Fan 1 Air Proving Good]]>
+</Comment>
+<Comment Operand="[0].4">
+<![CDATA[Booth 1 Restart Bake Cycle]]>
+</Comment>
+<Comment Operand="[0].5">
+<![CDATA[Supply Fan 1 High Ait Pressure Good]]>
+</Comment>
+<Comment Operand="[0].6">
+<![CDATA[Supply Fan 1 Low Air Pressure Good]]>
+</Comment>
+<Comment Operand="[0].7">
+<![CDATA[Supply Fan 1 Air Good]]>
+</Comment>
+<Comment Operand="[0].8">
+<![CDATA[Booth 1 End Bake Cycle]]>
+</Comment>
+<Comment Operand="[0].9">
+<![CDATA[Booth 1 System Ready?]]>
+</Comment>
+<Comment Operand="[0].10">
+<![CDATA[Booth 1 Heat Control Enable
+HMI Input?]]>
+</Comment>
+<Comment Operand="[0].11">
+<![CDATA[Booth 1 Bake Cycle Active]]>
+</Comment>
+<Comment Operand="[0].13">
+<![CDATA[Booth 1 Purge????
+ACtivates 3 min timer before bake]]>
+</Comment>
+<Comment Operand="[0].14">
+<![CDATA[Booth 1 Bake Cycle Timer Start]]>
+</Comment>
+<Comment Operand="[0].15">
+<![CDATA[Booth 1 Lights Off
+HMI Input]]>
+</Comment>
+<Comment Operand="[1].0">
+<![CDATA[Booth 1 Lights On
+HMI Input?]]>
+</Comment>
+<Comment Operand="[1].2">
+<![CDATA[Booth 1 Single Cycle Bake
+HMI Input???]]>
+</Comment>
+<Comment Operand="[1].3">
+<![CDATA[Booth 1 Restart Bake
+HMI Input???]]>
+</Comment>
+<Comment Operand="[1].4">
+<![CDATA[Booth 1 Restart Bake Cycle Mode]]>
+</Comment>
+<Comment Operand="[1].5">
+<![CDATA[Booth 1 End Bake Cycle Mode]]>
+</Comment>
+<Comment Operand="[2].0">
+<![CDATA[Center Door Switch Not Active]]>
+</Comment>
+<Comment Operand="[2].1">
+<![CDATA[Center Door Switch Active]]>
+</Comment>
+<Comment Operand="[2].2">
+<![CDATA[5 min Pulse
+Supply Fan Running]]>
+</Comment>
+<Comment Operand="[3].0">
+<![CDATA[Lighting Contactor Booth 1 Request 1]]>
+</Comment>
+<Comment Operand="[3].1">
+<![CDATA[Spray Solenoid 1 Request 1]]>
+</Comment>
+<Comment Operand="[3].2">
+<![CDATA[Damper Power Unit 1
+Run Reqest 1]]>
+</Comment>
+<Comment Operand="[3].3">
+<![CDATA[Exhaust Fan 1A Request 1]]>
+</Comment>
+<Comment Operand="[3].4">
+<![CDATA[SFS1 On Request 1]]>
+</Comment>
+<Comment Operand="[3].5">
+<![CDATA[Call for Heat 1
+ Request 1]]>
+</Comment>
+<Comment Operand="[3].6">
+<![CDATA[Damper Bake 1 Request 1]]>
+</Comment>
+<Comment Operand="[3].10">
+<![CDATA[Booth 1 Auto Balance Active?]]>
+</Comment>
+<Comment Operand="[3].11">
+<![CDATA[Booth 1 Air Pressure Good]]>
+</Comment>
+<Comment Operand="[3].12">
+<![CDATA[Booth 1 High Pressure Alarm]]>
+</Comment>
+<Comment Operand="[3].13">
+<![CDATA[Booth 1 Low Pressure Alarm]]>
+</Comment>
+<Comment Operand="[3].14">
+<![CDATA[Booth 1 Low Pressure Warning]]>
+</Comment>
+<Comment Operand="[3].15">
+<![CDATA[Booth 1 High Pressure Warning]]>
+</Comment>
+<Comment Operand="[4].0">
+<![CDATA[Lighting Contactor Booth 2 Request 1]]>
+</Comment>
+<Comment Operand="[4].1">
+<![CDATA[Spray Solenoid 2
+ Request 1]]>
+</Comment>
+<Comment Operand="[4].2">
+<![CDATA[Damper Power Unit 2 Run Request 1]]>
+</Comment>
+<Comment Operand="[4].3">
+<![CDATA[Exhaust Fan 2A Request 1]]>
+</Comment>
+<Comment Operand="[4].4">
+<![CDATA[SFS2 On Request 1]]>
+</Comment>
+<Comment Operand="[4].5">
+<![CDATA[Call For Heat 2 Request 1]]>
+</Comment>
+<Comment Operand="[4].6">
+<![CDATA[Damper Brake 2 Request 1]]>
+</Comment>
+<Comment Operand="[4].10">
+<![CDATA[Booth 2 Auto Balance Active]]>
+</Comment>
+<Comment Operand="[4].11">
+<![CDATA[Booth 2 Air Pressure good]]>
+</Comment>
+<Comment Operand="[4].12">
+<![CDATA[Booth 2 High Air Pressure Alarm]]>
+</Comment>
+<Comment Operand="[4].13">
+<![CDATA[Booth 2 Low Air Pressure Alarm]]>
+</Comment>
+<Comment Operand="[4].14">
+<![CDATA[Booth 2 Low Air Pressure Warning]]>
+</Comment>
+<Comment Operand="[4].15">
+<![CDATA[Booth 2 High Air Pressure Warning]]>
+</Comment>
+<Comment Operand="[5].0">
+<![CDATA[Lighting Contactor Booth 1 Request 2]]>
+</Comment>
+<Comment Operand="[5].1">
+<![CDATA[Spray Solenoid 1 Request 2]]>
+</Comment>
+<Comment Operand="[5].2">
+<![CDATA[Damper Power Unit 1 Run Request 2]]>
+</Comment>
+<Comment Operand="[5].3">
+<![CDATA[Exhaust Fan 1A Request 2]]>
+</Comment>
+<Comment Operand="[5].4">
+<![CDATA[SFS1 On Request 2]]>
+</Comment>
+<Comment Operand="[5].5">
+<![CDATA[Call For Heat 1 Request 2]]>
+</Comment>
+<Comment Operand="[5].6">
+<![CDATA[Damper Bake 1 Request 2]]>
+</Comment>
+<Comment Operand="[5].7">
+<![CDATA[Both Booths System
+Booth 1 Active]]>
+</Comment>
+<Comment Operand="[5].8">
+<![CDATA[Both Booths System
+Booth 2 Active]]>
+</Comment>
+<Comment Operand="[5].10">
+<![CDATA[Both Booths Air Balance Active]]>
+</Comment>
+<Comment Operand="[6].0">
+<![CDATA[Lighting Contactor Booth 2 Request 2]]>
+</Comment>
+<Comment Operand="[6].1">
+<![CDATA[Spray Solenoid 2 Request 2]]>
+</Comment>
+<Comment Operand="[6].2">
+<![CDATA[Damper Power Unit 1 Run Request 2]]>
+</Comment>
+<Comment Operand="[6].3">
+<![CDATA[Exhaust Fan 2A Request 2]]>
+</Comment>
+<Comment Operand="[6].4">
+<![CDATA[SFS2 On Request 2]]>
+</Comment>
+<Comment Operand="[6].5">
+<![CDATA[Call For Heat 2 Request 2]]>
+</Comment>
+<Comment Operand="[6].6">
+<![CDATA[Damper Bake 2 Request 2]]>
+</Comment>
+<Comment Operand="[8].0">
+<![CDATA[Exhaust Fan 1B Request 1]]>
+</Comment>
+<Comment Operand="[8].1">
+<![CDATA[Exhaust Fan 1E Request 1]]>
+</Comment>
+<Comment Operand="[9].0">
+<![CDATA[Exhaust Fan 2B Request 1]]>
+</Comment>
+<Comment Operand="[9].1">
+<![CDATA[Exhaust Fan 2E Request 1]]>
+</Comment>
+<Comment Operand="[9].2">
+<![CDATA[Exhaust Fan 1B Request 2]]>
+</Comment>
+<Comment Operand="[9].3">
+<![CDATA[Exhaust Fan 1E Request 2]]>
+</Comment>
+<Comment Operand="[9].4">
+<![CDATA[Exhaust Fan 2B Request 2]]>
+</Comment>
+<Comment Operand="[9].5">
+<![CDATA[Exhaust Fan 2E Request 2]]>
+</Comment>
+<Comment Operand="[30].0">
+<![CDATA[Booth 2 System Enabled?]]>
+</Comment>
+<Comment Operand="[30].1">
+<![CDATA[Booth 2 System Disable
+HMI Input]]>
+</Comment>
+<Comment Operand="[30].2">
+<![CDATA[Booth 2 System Enable
+HMI Input???]]>
+</Comment>
+<Comment Operand="[30].3">
+<![CDATA[Exhaust Fan 2 Air Good]]>
+</Comment>
+<Comment Operand="[30].4">
+<![CDATA[Booth 2 Restart Bake Cycle]]>
+</Comment>
+<Comment Operand="[30].5">
+<![CDATA[Supply Fan 2 High Air Pressure Good]]>
+</Comment>
+<Comment Operand="[30].6">
+<![CDATA[Supply Fan 2 Low Air Pressure Good]]>
+</Comment>
+<Comment Operand="[30].7">
+<![CDATA[Supply Fan 2 Air Good]]>
+</Comment>
+<Comment Operand="[30].8">
+<![CDATA[Booth 2 End Bake Cycle]]>
+</Comment>
+<Comment Operand="[30].9">
+<![CDATA[Booth 2 System Ready]]>
+</Comment>
+<Comment Operand="[30].11">
+<![CDATA[Booth 2 Bake Cycle Active]]>
+</Comment>
+<Comment Operand="[30].14">
+<![CDATA[Booth 2 Bake Cycle Start]]>
+</Comment>
+<Comment Operand="[30].15">
+<![CDATA[Booth 2 Lighting Off
+HMI Input?]]>
+</Comment>
+<Comment Operand="[31].0">
+<![CDATA[Booth 2 Lighting On 
+HMI Input?]]>
+</Comment>
+<Comment Operand="[31].2">
+<![CDATA[Booth 2 End Cycle Mode
+HMI Input]]>
+</Comment>
+<Comment Operand="[31].3">
+<![CDATA[Booth 2 Restart Cycle Mode
+HMI Input]]>
+</Comment>
+<Comment Operand="[31].4">
+<![CDATA[Booth 2 Restart Bake Cycle Mode]]>
+</Comment>
+<Comment Operand="[31].5">
+<![CDATA[Booth 2 End Bake Cycle Mode]]>
+</Comment>
+<Comment Operand="[32].2">
+<![CDATA[Booth 2 5min Running Pulse]]>
+</Comment>
+<Comment Operand="[40].0">
+<![CDATA[Booth 1 Heat Control Enabled]]>
+</Comment>
+<Comment Operand="[40].1">
+<![CDATA[Booth 1 Heat Control Disable
+HMI Input?]]>
+</Comment>
+<Comment Operand="[40].2">
+<![CDATA[Booth 1 Purge Cycle ON]]>
+</Comment>
+<Comment Operand="[40].3">
+<![CDATA[Booth 1 Bake Cycle
+Write Setpoint]]>
+</Comment>
+<Comment Operand="[40].4">
+<![CDATA[End of Bake
+Cooling Stage?]]>
+</Comment>
+<Comment Operand="[40].8">
+<![CDATA[Booth 1 Air Pressure Bad]]>
+</Comment>
+<Comment Operand="[40].10">
+<![CDATA[Booth 1 Bake cycle start HMI input]]>
+</Comment>
+<Comment Operand="[40].12">
+<![CDATA[Enable Booth 1 Temp Control]]>
+</Comment>
+<Comment Operand="[40].14">
+<![CDATA[Booth 1 End Bake Cycle HMI Input]]>
+</Comment>
+<Comment Operand="[41].0">
+<![CDATA[Booth 2 Heat Enabled]]>
+</Comment>
+<Comment Operand="[41].1">
+<![CDATA[Booth 2 Heat Disable
+HMI Input/]]>
+</Comment>
+<Comment Operand="[41].2">
+<![CDATA[Booth 2 Purge Timer Activated]]>
+</Comment>
+<Comment Operand="[41].3">
+<![CDATA[Bake Cycle Start
+Setpoint Switching]]>
+</Comment>
+<Comment Operand="[41].4">
+<![CDATA[Booth 2 Bake Cycle Done]]>
+</Comment>
+<Comment Operand="[41].8">
+<![CDATA[Booth 2 Air Pressure Not Good]]>
+</Comment>
+<Comment Operand="[41].10">
+<![CDATA[Booth 2 Start Bake Cycle HMI Input]]>
+</Comment>
+<Comment Operand="[41].14">
+<![CDATA[Booth 2 End Bake Cycle]]>
+</Comment>
+<Comment Operand="[41].15">
+<![CDATA[Booth 2 Heat Enable
+HMI Input?]]>
+</Comment>
+<Comment Operand="[42].0">
+<![CDATA[Both Booths Burners Active]]>
+</Comment>
+<Comment Operand="[42].1">
+<![CDATA[Both Burners Disable
+HMI Input]]>
+</Comment>
+<Comment Operand="[42].3">
+<![CDATA[Both Burners Purge Complete, Setpoint Control]]>
+</Comment>
+<Comment Operand="[42].4">
+<![CDATA[Both Burners Bake Cycle Done]]>
+</Comment>
+<Comment Operand="[42].8">
+<![CDATA[Botth Booths Air Flow Good]]>
+</Comment>
+<Comment Operand="[42].10">
+<![CDATA[Both Booths Bake Cycle start]]>
+</Comment>
+<Comment Operand="[42].11">
+<![CDATA[Both Booths
+High Temp Alarm]]>
+</Comment>
+<Comment Operand="[42].14">
+<![CDATA[Both Booths bake cycle Stop]]>
+</Comment>
+<Comment Operand="[60].0">
+<![CDATA[Both Booths System Enabled]]>
+</Comment>
+<Comment Operand="[60].1">
+<![CDATA[Both Booths Disable System
+HMI Input]]>
+</Comment>
+<Comment Operand="[60].2">
+<![CDATA[Both Booths Enable System
+HMI Input]]>
+</Comment>
+<Comment Operand="[60].4">
+<![CDATA[Both Booths Restart Bake Cycle]]>
+</Comment>
+<Comment Operand="[60].8">
+<![CDATA[Both Burners End Bake Cycle]]>
+</Comment>
+<Comment Operand="[60].9">
+<![CDATA[Both Booths System Active]]>
+</Comment>
+<Comment Operand="[60].10">
+<![CDATA[Both Burners Enable
+HMI Input]]>
+</Comment>
+<Comment Operand="[60].11">
+<![CDATA[Both Booths Bake Cycle Active]]>
+</Comment>
+<Comment Operand="[60].13">
+<![CDATA[Both Booths
+Start Purge?]]>
+</Comment>
+<Comment Operand="[60].14">
+<![CDATA[Both Burners
+Purge Complete]]>
+</Comment>
+<Comment Operand="[60].15">
+<![CDATA[Both Burners Lights Off
+HMI Input]]>
+</Comment>
+<Comment Operand="[61].0">
+<![CDATA[Both Burners Lights On
+HMI Input]]>
+</Comment>
+<Comment Operand="[61].6">
+<![CDATA[Both Booths
+Safety Good]]>
+</Comment>
+<Comment Operand="[62].2">
+<![CDATA[Both Booths 5 min Pulse Count]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[[232,0,2,1,0,19903,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,232,0,0,0,0,0,0,0,0,0,0,0,4097,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,513,224,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="INT" Dimensions="110" Radix="Decimal">
+<Element Index="[0]" Value="232"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="2"/>
+<Element Index="[3]" Value="1"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="19903"/>
+<Element Index="[6]" Value="63"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="232"/>
+<Element Index="[31]" Value="0"/>
+<Element Index="[32]" Value="0"/>
+<Element Index="[33]" Value="0"/>
+<Element Index="[34]" Value="0"/>
+<Element Index="[35]" Value="0"/>
+<Element Index="[36]" Value="0"/>
+<Element Index="[37]" Value="0"/>
+<Element Index="[38]" Value="0"/>
+<Element Index="[39]" Value="0"/>
+<Element Index="[40]" Value="0"/>
+<Element Index="[41]" Value="0"/>
+<Element Index="[42]" Value="4097"/>
+<Element Index="[43]" Value="0"/>
+<Element Index="[44]" Value="0"/>
+<Element Index="[45]" Value="0"/>
+<Element Index="[46]" Value="0"/>
+<Element Index="[47]" Value="0"/>
+<Element Index="[48]" Value="0"/>
+<Element Index="[49]" Value="0"/>
+<Element Index="[50]" Value="0"/>
+<Element Index="[51]" Value="0"/>
+<Element Index="[52]" Value="0"/>
+<Element Index="[53]" Value="0"/>
+<Element Index="[54]" Value="0"/>
+<Element Index="[55]" Value="0"/>
+<Element Index="[56]" Value="0"/>
+<Element Index="[57]" Value="0"/>
+<Element Index="[58]" Value="0"/>
+<Element Index="[59]" Value="0"/>
+<Element Index="[60]" Value="513"/>
+<Element Index="[61]" Value="224"/>
+<Element Index="[62]" Value="0"/>
+<Element Index="[63]" Value="0"/>
+<Element Index="[64]" Value="0"/>
+<Element Index="[65]" Value="0"/>
+<Element Index="[66]" Value="0"/>
+<Element Index="[67]" Value="0"/>
+<Element Index="[68]" Value="0"/>
+<Element Index="[69]" Value="0"/>
+<Element Index="[70]" Value="0"/>
+<Element Index="[71]" Value="0"/>
+<Element Index="[72]" Value="0"/>
+<Element Index="[73]" Value="0"/>
+<Element Index="[74]" Value="0"/>
+<Element Index="[75]" Value="0"/>
+<Element Index="[76]" Value="0"/>
+<Element Index="[77]" Value="0"/>
+<Element Index="[78]" Value="0"/>
+<Element Index="[79]" Value="0"/>
+<Element Index="[80]" Value="0"/>
+<Element Index="[81]" Value="0"/>
+<Element Index="[82]" Value="0"/>
+<Element Index="[83]" Value="0"/>
+<Element Index="[84]" Value="0"/>
+<Element Index="[85]" Value="0"/>
+<Element Index="[86]" Value="0"/>
+<Element Index="[87]" Value="0"/>
+<Element Index="[88]" Value="0"/>
+<Element Index="[89]" Value="0"/>
+<Element Index="[90]" Value="0"/>
+<Element Index="[91]" Value="0"/>
+<Element Index="[92]" Value="0"/>
+<Element Index="[93]" Value="0"/>
+<Element Index="[94]" Value="0"/>
+<Element Index="[95]" Value="0"/>
+<Element Index="[96]" Value="0"/>
+<Element Index="[97]" Value="0"/>
+<Element Index="[98]" Value="0"/>
+<Element Index="[99]" Value="0"/>
+<Element Index="[100]" Value="22"/>
+<Element Index="[101]" Value="0"/>
+<Element Index="[102]" Value="0"/>
+<Element Index="[103]" Value="0"/>
+<Element Index="[104]" Value="0"/>
+<Element Index="[105]" Value="0"/>
+<Element Index="[106]" Value="0"/>
+<Element Index="[107]" Value="0"/>
+<Element Index="[108]" Value="0"/>
+<Element Index="[109]" Value="0"/>
+</Array>
+</Data>
+</Tag>
+<Tag Name="nate_toggle" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="ONS" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[3]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="3"/>
+</Data>
+</Tag>
+<Tag Name="PID1" TagType="Base" DataType="PID" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[33408,7.00000000e+003,1.39999998e+000,1.79999992e-002,0.00000000e+000,0.00000000e+000,2.00000000e+004
+		,0.00000000e+000,0.00000000e+000,3.43192558e+001,6.00000000e+001,0.00000000e+000,1.00000000e+000
+		,6.80000000e+003,2.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,2.00000000e+004,0.00000000e+000,0.00000000e+000
+		,1.00000000e+004,0.00000000e+000,0.00000000e+000,4.09500000e+003,[3.29192543e+001,-5.44000000e+002
+		,6.80000000e+003,2.00000000e+002,7.00000000e+003,4.99999989e-003,1.00000000e+000,1.60000000e+001
+		,1.39999998e+000,1.79999992e-002,0.00000000e+000,1.39999998e+000,1.79999992e-002,0.00000000e+000
+		,0.00000000e+000,1.00000000e+002,2.44200248e-002]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="PID">
+<DataValueMember Name="CTL" DataType="DINT" Radix="Decimal" Value="33408"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DOE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SWM" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NDF" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOBC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOZC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="INI" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SPOR" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLH" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EWD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DVNA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DVPA" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PVLA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHA" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="7000.0"/>
+<DataValueMember Name="KP" DataType="REAL" Radix="Float" Value="1.4"/>
+<DataValueMember Name="KI" DataType="REAL" Radix="Float" Value="0.018"/>
+<DataValueMember Name="KD" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="BIAS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXS" DataType="REAL" Radix="Float" Value="20000.0"/>
+<DataValueMember Name="MINS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SO" DataType="REAL" Radix="Float" Value="34.319256"/>
+<DataValueMember Name="MAXO" DataType="REAL" Radix="Float" Value="60.0"/>
+<DataValueMember Name="MINO" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="UPD" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="6800.0"/>
+<DataValueMember Name="ERR" DataType="REAL" Radix="Float" Value="200.0"/>
+<DataValueMember Name="OUT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVH" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVL" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXI" DataType="REAL" Radix="Float" Value="20000.0"/>
+<DataValueMember Name="MINI" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="TIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXCV" DataType="REAL" Radix="Float" Value="10000.0"/>
+<DataValueMember Name="MINCV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MINTIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXTIE" DataType="REAL" Radix="Float" Value="4095.0"/>
+<ArrayMember Name="DATA" DataType="REAL" Dimensions="17" Radix="Float">
+<Element Index="[0]" Value="32.919254"/>
+<Element Index="[1]" Value="-544.0"/>
+<Element Index="[2]" Value="6800.0"/>
+<Element Index="[3]" Value="200.0"/>
+<Element Index="[4]" Value="7000.0"/>
+<Element Index="[5]" Value="0.005"/>
+<Element Index="[6]" Value="1.0"/>
+<Element Index="[7]" Value="16.0"/>
+<Element Index="[8]" Value="1.4"/>
+<Element Index="[9]" Value="0.018"/>
+<Element Index="[10]" Value="0.0"/>
+<Element Index="[11]" Value="1.4"/>
+<Element Index="[12]" Value="0.018"/>
+<Element Index="[13]" Value="0.0"/>
+<Element Index="[14]" Value="0.0"/>
+<Element Index="[15]" Value="100.0"/>
+<Element Index="[16]" Value="0.024420025"/>
+</ArrayMember>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="PID2" TagType="Base" DataType="PID" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[33920,7.50000000e+003,2.59999990e+000,9.99999978e-003,0.00000000e+000,0.00000000e+000,2.00000000e+004
+		,0.00000000e+000,0.00000000e+000,3.03010693e+001,1.00000000e+002,0.00000000e+000,1.00000000e+000
+		,7.54800000e+003,-4.80000000e+001,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,2.00000000e+004,0.00000000e+000,0.00000000e+000
+		,1.00000000e+004,0.00000000e+000,0.00000000e+000,1.00000000e+004,[3.09250698e+001,-6.03839966e+002
+		,7.54800000e+003,-4.80000000e+001,7.50000000e+003,4.99999989e-003,1.00000000e+000,1.60000000e+001
+		,2.59999990e+000,9.99999978e-003,0.00000000e+000,2.59999990e+000,9.99999978e-003,0.00000000e+000
+		,0.00000000e+000,1.00000000e+002,9.99999978e-003]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="PID">
+<DataValueMember Name="CTL" DataType="DINT" Radix="Decimal" Value="33920"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DOE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SWM" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NDF" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOBC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOZC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="INI" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SPOR" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLH" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EWD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DVNA" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DVPA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVLA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHA" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="7500.0"/>
+<DataValueMember Name="KP" DataType="REAL" Radix="Float" Value="2.6"/>
+<DataValueMember Name="KI" DataType="REAL" Radix="Float" Value="0.01"/>
+<DataValueMember Name="KD" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="BIAS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXS" DataType="REAL" Radix="Float" Value="20000.0"/>
+<DataValueMember Name="MINS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SO" DataType="REAL" Radix="Float" Value="30.30107"/>
+<DataValueMember Name="MAXO" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="MINO" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="UPD" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="7548.0"/>
+<DataValueMember Name="ERR" DataType="REAL" Radix="Float" Value="-48.0"/>
+<DataValueMember Name="OUT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVH" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVL" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXI" DataType="REAL" Radix="Float" Value="20000.0"/>
+<DataValueMember Name="MINI" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="TIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXCV" DataType="REAL" Radix="Float" Value="10000.0"/>
+<DataValueMember Name="MINCV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MINTIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXTIE" DataType="REAL" Radix="Float" Value="10000.0"/>
+<ArrayMember Name="DATA" DataType="REAL" Dimensions="17" Radix="Float">
+<Element Index="[0]" Value="30.92507"/>
+<Element Index="[1]" Value="-603.83997"/>
+<Element Index="[2]" Value="7548.0"/>
+<Element Index="[3]" Value="-48.0"/>
+<Element Index="[4]" Value="7500.0"/>
+<Element Index="[5]" Value="0.005"/>
+<Element Index="[6]" Value="1.0"/>
+<Element Index="[7]" Value="16.0"/>
+<Element Index="[8]" Value="2.6"/>
+<Element Index="[9]" Value="0.01"/>
+<Element Index="[10]" Value="0.0"/>
+<Element Index="[11]" Value="2.6"/>
+<Element Index="[12]" Value="0.01"/>
+<Element Index="[13]" Value="0.0"/>
+<Element Index="[14]" Value="0.0"/>
+<Element Index="[15]" Value="100.0"/>
+<Element Index="[16]" Value="0.01"/>
+</ArrayMember>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="PID3" TagType="Base" DataType="PID" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[33920,7.40000000e+003,2.00000000e+000,9.99999978e-003,0.00000000e+000,0.00000000e+000,2.00000000e+004
+		,0.00000000e+000,0.00000000e+000,2.87241573e+001,5.00000000e+001,0.00000000e+000,1.00000000e+000
+		,7.43300000e+003,-3.30000000e+001,2.87241573e+001,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,2.00000000e+004,0.00000000e+000,0.00000000e+000
+		,1.00000000e+004,0.00000000e+000,0.00000000e+000,4.09500000e+003,[2.90541573e+001,-5.94640015e+002
+		,7.43300000e+003,-3.30000000e+001,7.40000000e+003,4.99999989e-003,1.00000000e+000,1.60000000e+001
+		,2.00000000e+000,9.99999978e-003,0.00000000e+000,2.00000000e+000,9.99999978e-003,0.00000000e+000
+		,0.00000000e+000,1.00000000e+002,2.44200248e-002]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="PID">
+<DataValueMember Name="CTL" DataType="DINT" Radix="Decimal" Value="33920"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DOE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SWM" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NDF" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOBC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOZC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="INI" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SPOR" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLH" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EWD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DVNA" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DVPA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVLA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHA" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="7400.0"/>
+<DataValueMember Name="KP" DataType="REAL" Radix="Float" Value="2.0"/>
+<DataValueMember Name="KI" DataType="REAL" Radix="Float" Value="0.01"/>
+<DataValueMember Name="KD" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="BIAS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXS" DataType="REAL" Radix="Float" Value="20000.0"/>
+<DataValueMember Name="MINS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SO" DataType="REAL" Radix="Float" Value="28.724157"/>
+<DataValueMember Name="MAXO" DataType="REAL" Radix="Float" Value="50.0"/>
+<DataValueMember Name="MINO" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="UPD" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="7433.0"/>
+<DataValueMember Name="ERR" DataType="REAL" Radix="Float" Value="-33.0"/>
+<DataValueMember Name="OUT" DataType="REAL" Radix="Float" Value="28.724157"/>
+<DataValueMember Name="PVH" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVL" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXI" DataType="REAL" Radix="Float" Value="20000.0"/>
+<DataValueMember Name="MINI" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="TIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXCV" DataType="REAL" Radix="Float" Value="10000.0"/>
+<DataValueMember Name="MINCV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MINTIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXTIE" DataType="REAL" Radix="Float" Value="4095.0"/>
+<ArrayMember Name="DATA" DataType="REAL" Dimensions="17" Radix="Float">
+<Element Index="[0]" Value="29.054157"/>
+<Element Index="[1]" Value="-594.64"/>
+<Element Index="[2]" Value="7433.0"/>
+<Element Index="[3]" Value="-33.0"/>
+<Element Index="[4]" Value="7400.0"/>
+<Element Index="[5]" Value="0.005"/>
+<Element Index="[6]" Value="1.0"/>
+<Element Index="[7]" Value="16.0"/>
+<Element Index="[8]" Value="2.0"/>
+<Element Index="[9]" Value="0.01"/>
+<Element Index="[10]" Value="0.0"/>
+<Element Index="[11]" Value="2.0"/>
+<Element Index="[12]" Value="0.01"/>
+<Element Index="[13]" Value="0.0"/>
+<Element Index="[14]" Value="0.0"/>
+<Element Index="[15]" Value="100.0"/>
+<Element Index="[16]" Value="0.024420025"/>
+</ArrayMember>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="PRE" TagType="Base" DataType="INT" Dimensions="16" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand="[0]">
+<![CDATA[Old SV3]]>
+</Comment>
+<Comment Operand="[1]">
+<![CDATA[Old SV10]]>
+</Comment>
+<Comment Operand="[2]">
+<![CDATA[Old SV15]]>
+</Comment>
+<Comment Operand="[3]">
+<![CDATA[Old SV20]]>
+</Comment>
+<Comment Operand="[4]">
+<![CDATA[Old SV30]]>
+</Comment>
+<Comment Operand="[5]">
+<![CDATA[Old SV71]]>
+</Comment>
+<Comment Operand="[6]">
+<![CDATA[Old SV100]]>
+</Comment>
+<Comment Operand="[7]">
+<![CDATA[Old SV107]]>
+</Comment>
+<Comment Operand="[8]">
+<![CDATA[Old SV130]]>
+</Comment>
+<Comment Operand="[9]">
+<![CDATA[Old SV200]]>
+</Comment>
+<Comment Operand="[10]">
+<![CDATA[Old SV300]]>
+</Comment>
+<Comment Operand="[11]">
+<![CDATA[Old SV1800]]>
+</Comment>
+<Comment Operand="[12]">
+<![CDATA[Old SV3600]]>
+</Comment>
+<Comment Operand="[13]">
+<![CDATA[Old SV6000]]>
+</Comment>
+<Comment Operand="[14]">
+<![CDATA[Old SV18000]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[[0,0,0,0,0,0,1800,1800,1800,0,0,0,0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="INT" Dimensions="16" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="1800"/>
+<Element Index="[7]" Value="1800"/>
+<Element Index="[8]" Value="1800"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+</Array>
+</Data>
+</Tag>
+<Tag Name="R000" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand=".0">
+<![CDATA[Supply Fan Motor Overload 1 Input
+1OLS-1]]>
+</Comment>
+<Comment Operand=".1">
+<![CDATA[Exhaust Proving Switch 1 Input
+EPS1]]>
+</Comment>
+<Comment Operand=".3">
+<![CDATA[Supply Fan 1 Input
+1M-2]]>
+</Comment>
+<Comment Operand=".4">
+<![CDATA[Bake High Limit Switch Input
+HHLATS]]>
+</Comment>
+<Comment Operand=".5">
+<![CDATA[Spray High Limit Switch Input
+LHLATS]]>
+</Comment>
+<Comment Operand=".6">
+<![CDATA[High Air Proving Switch Input
+HAPS]]>
+</Comment>
+<Comment Operand=".7">
+<![CDATA[Low Air Proving Switch Input
+LAPS]]>
+</Comment>
+<Comment Operand=".8">
+<![CDATA[Damper Motor End Switch Input
+DMES1]]>
+</Comment>
+<Comment Operand=".9">
+<![CDATA[Supply Fan Proving Switch Input
+SFPS]]>
+</Comment>
+<Comment Operand=".10">
+<![CDATA[Gas Valve Relay (MUA1) Input
+R7-1]]>
+</Comment>
+<Comment Operand=".11">
+<![CDATA[Flame Fail Relay (MUA1) Input
+R8-1]]>
+</Comment>
+<Comment Operand=".12">
+<![CDATA[Light Microswitches Input
+LMS1]]>
+</Comment>
+<Comment Operand=".14">
+<![CDATA[Exhaust Fan 1 Input
+VFD1 R1]]>
+</Comment>
+<Comment Operand=".15">
+<![CDATA[Center Door Switch Input]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[-26629]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="-26629"/>
+</Data>
+</Tag>
+<Tag Name="R001" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand=".0">
+<![CDATA[Damper Power Unit 1 Output]]>
+</Comment>
+<Comment Operand=".1">
+<![CDATA[Output
+SFS1]]>
+</Comment>
+<Comment Operand=".2">
+<![CDATA[Damper Bake Relay 1 Output
+R1 Unit-1]]>
+</Comment>
+<Comment Operand=".3">
+<![CDATA[Lighting Contactor Booth 1 Output
+LC1]]>
+</Comment>
+<Comment Operand=".4">
+<![CDATA[Call For Heat Relay 1 Output
+R3 Unit-1]]>
+</Comment>
+<Comment Operand=".5">
+<![CDATA[Spray Solenoid 1 Output]]>
+</Comment>
+<Comment Operand=".8">
+<![CDATA[Damper Power Unit 2
+Output]]>
+</Comment>
+<Comment Operand=".9">
+<![CDATA[Output SFS2]]>
+</Comment>
+<Comment Operand=".10">
+<![CDATA[Damper Bake Relay 2 Output
+R1 Unit-2]]>
+</Comment>
+<Comment Operand=".11">
+<![CDATA[Lighting Contactor Booth 2 Output
+LC2]]>
+</Comment>
+<Comment Operand=".12">
+<![CDATA[Call For Heat Relay 2 Output
+R3 Unit-2]]>
+</Comment>
+<Comment Operand=".13">
+<![CDATA[Spray Solenoid 2 Output]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[15163]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="15163"/>
+</Data>
+</Tag>
+<Tag Name="R002" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand=".0">
+<![CDATA[Supply Fan Motor Overload 2 Input
+2OLS-1]]>
+</Comment>
+<Comment Operand=".1">
+<![CDATA[Exhaust Fan Proving Switch 2 Input
+EPS2]]>
+</Comment>
+<Comment Operand=".3">
+<![CDATA[Supply Fan Motor 2 Input
+2M-1]]>
+</Comment>
+<Comment Operand=".4">
+<![CDATA[Bake High Limit Switch 2 Input
+HHLATS2]]>
+</Comment>
+<Comment Operand=".5">
+<![CDATA[Spray High Limit Switch Input
+LHLATS2]]>
+</Comment>
+<Comment Operand=".6">
+<![CDATA[High Air Proving Switch 2 Input
+HAPS2]]>
+</Comment>
+<Comment Operand=".7">
+<![CDATA[Low Air Proving Switch 2 Input
+LAPS2]]>
+</Comment>
+<Comment Operand=".8">
+<![CDATA[Damper Motor End Switch 2 Input
+DMES2]]>
+</Comment>
+<Comment Operand=".9">
+<![CDATA[Supply Fan Proving Switch 2 Input
+SFPS2]]>
+</Comment>
+<Comment Operand=".10">
+<![CDATA[Gas Valve Relay (MUA2) Input
+R6-1]]>
+</Comment>
+<Comment Operand=".11">
+<![CDATA[Flame Fail Relay (MUA2) Input
+R10-1]]>
+</Comment>
+<Comment Operand=".12">
+<![CDATA[Light Microswitch 2 Input
+LMS2]]>
+</Comment>
+<Comment Operand=".14">
+<![CDATA[Exhaust Fan 2 Input
+VFD2 R1]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[6139]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="6139"/>
+</Data>
+</Tag>
+<Tag Name="R003" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand=".0">
+<![CDATA[Exhaust Fan 1 Output
+13A]]>
+</Comment>
+<Comment Operand=".1">
+<![CDATA[Exhaust Fan 1 Output 13E]]>
+</Comment>
+<Comment Operand=".2">
+<![CDATA[Exhaust Fan 1 Output
+13B]]>
+</Comment>
+<Comment Operand=".3">
+<![CDATA[Exhaust Fan 1 Output]]>
+</Comment>
+<Comment Operand=".4">
+<![CDATA[Exhaust Fan 2 Output
+13A]]>
+</Comment>
+<Comment Operand=".5">
+<![CDATA[Exhaust Fan 2 Output 13E]]>
+</Comment>
+<Comment Operand=".6">
+<![CDATA[Exhaust Fan 2 Output 13B]]>
+</Comment>
+<Comment Operand=".7">
+<![CDATA[Exhaust Fan 2 Output 13]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[17]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="17"/>
+</Data>
+</Tag>
+<Tag Name="R004" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Booth 1 Pressure
+Input]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[4378]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="4378"/>
+</Data>
+</Tag>
+<Tag Name="R005" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Booth 2 Pressure Input]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[4820]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="4820"/>
+</Data>
+</Tag>
+<Tag Name="R006" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Booth 1 Temperature Input]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[8098]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="8098"/>
+</Data>
+</Tag>
+<Tag Name="R006_Raw" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[5.99900000e+003]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="5999.0"/>
+</Data>
+</Tag>
+<Tag Name="R007" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Booth 2 Temperature Input]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[6768]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="6768"/>
+</Data>
+</Tag>
+<Tag Name="R007_Raw" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[5.43300000e+003]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="5433.0"/>
+</Data>
+</Tag>
+<Tag Name="R008" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Unit 1 Valve Output]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2873]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="2873"/>
+</Data>
+</Tag>
+<Tag Name="R009" TagType="Base" DataType="INT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Unit 2 Valve Output]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2873]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="2873"/>
+</Data>
+</Tag>
+<Tag Name="TMR" TagType="Base" DataType="TIMER" Dimensions="50" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand="[0]">
+<![CDATA[Old K64]]>
+</Comment>
+<Comment Operand="[1]">
+<![CDATA[Old K66]]>
+</Comment>
+<Comment Operand="[2]">
+<![CDATA[Old K67]]>
+</Comment>
+<Comment Operand="[3]">
+<![CDATA[Old K68]]>
+</Comment>
+<Comment Operand="[4]">
+<![CDATA[Old K69]]>
+</Comment>
+<Comment Operand="[5]">
+<![CDATA[Old K71]]>
+</Comment>
+<Comment Operand="[6]">
+<![CDATA[Old K72]]>
+</Comment>
+<Comment Operand="[7]">
+<![CDATA[Old K73]]>
+</Comment>
+<Comment Operand="[8]">
+<![CDATA[Old K74]]>
+</Comment>
+<Comment Operand="[9]">
+<![CDATA[Old K75]]>
+</Comment>
+<Comment Operand="[10]">
+<![CDATA[Old K76]]>
+</Comment>
+<Comment Operand="[11]">
+<![CDATA[Old K77]]>
+</Comment>
+<Comment Operand="[12]">
+<![CDATA[Old K78]]>
+</Comment>
+<Comment Operand="[13]">
+<![CDATA[Old K79]]>
+</Comment>
+<Comment Operand="[14]">
+<![CDATA[Old K80]]>
+</Comment>
+<Comment Operand="[15]">
+<![CDATA[Old K81]]>
+</Comment>
+<Comment Operand="[16]">
+<![CDATA[Old K82]]>
+</Comment>
+<Comment Operand="[17]">
+<![CDATA[Old K83]]>
+</Comment>
+<Comment Operand="[18]">
+<![CDATA[Old K84]]>
+</Comment>
+<Comment Operand="[19]">
+<![CDATA[Old K85]]>
+</Comment>
+<Comment Operand="[20]">
+<![CDATA[Old K86]]>
+</Comment>
+<Comment Operand="[21]">
+<![CDATA[Old K87]]>
+</Comment>
+<Comment Operand="[22]">
+<![CDATA[Old K88]]>
+</Comment>
+<Comment Operand="[23]">
+<![CDATA[Old K89]]>
+</Comment>
+<Comment Operand="[24]">
+<![CDATA[Old K90]]>
+</Comment>
+<Comment Operand="[25]">
+<![CDATA[Old K91]]>
+</Comment>
+<Comment Operand="[26]">
+<![CDATA[Old K92]]>
+</Comment>
+<Comment Operand="[27]">
+<![CDATA[Old K93]]>
+</Comment>
+<Comment Operand="[28]">
+<![CDATA[Old K94]]>
+</Comment>
+<Comment Operand="[29]">
+<![CDATA[Old K96]]>
+</Comment>
+<Comment Operand="[30]">
+<![CDATA[Old K97]]>
+</Comment>
+<Comment Operand="[31]">
+<![CDATA[Old K98]]>
+</Comment>
+<Comment Operand="[32]">
+<![CDATA[Old K99]]>
+</Comment>
+<Comment Operand="[33]">
+<![CDATA[Old K100]]>
+</Comment>
+<Comment Operand="[34]">
+<![CDATA[Old K101]]>
+</Comment>
+<Comment Operand="[35]">
+<![CDATA[Old K102]]>
+</Comment>
+<Comment Operand="[36]">
+<![CDATA[Old K107]]>
+</Comment>
+<Comment Operand="[37]">
+<![CDATA[Old K110]]>
+</Comment>
+<Comment Operand="[38]">
+<![CDATA[Old K111]]>
+</Comment>
+<Comment Operand="[39]">
+<![CDATA[Old K112]]>
+</Comment>
+<Comment Operand="[40]">
+<![CDATA[Old K113]]>
+</Comment>
+<Comment Operand="[41]">
+<![CDATA[Old K114]]>
+</Comment>
+<Comment Operand="[42]">
+<![CDATA[Old K115]]>
+</Comment>
+<Comment Operand="[43]">
+<![CDATA[Old K116]]>
+</Comment>
+<Comment Operand="[44]">
+<![CDATA[Old K117]]>
+</Comment>
+<Comment Operand="[45]">
+<![CDATA[Old K118]]>
+</Comment>
+<Comment Operand="[46]">
+<![CDATA[Old K129]]>
+</Comment>
+<Comment Operand="[47]">
+<![CDATA[Old K130]]>
+</Comment>
+<Comment Operand="[48]">
+<![CDATA[Old K131]]>
+</Comment>
+<Comment Operand="[49]">
+<![CDATA[Old K132]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[[[-1610605513,2000,0],[-1610605482,2000,0],[-1610605482,2000,0],[-1610605482,2000,0],[3221476,30000,0],[681641
+		,1500000,0],[681641,600000,0],[3221476,360000,0],[3225602,360000,0],[-1072155932,360000,138620],[3221477,3000
+		,0],[3221437,300,0],[3221477,3000,0],[3216577,300,0],[3221477,3000,0],[3225602,3000,0],[2824742,300,0],[3225602,3000
+		,0],[2823466,300,0],[3225602,3000,0],[-1609026844,3000,3000],[1584308,300,0],[-1072155932,3000,1584],[1583432,300
+		,0],[-1072155932,3000,2460],[3221476,20000,0],[3225602,20000,0],[-1609026844,20000,20000],[-1610605513,2000
+		,0],[-1610605470,2000,0],[-1610605470,2000,0],[-1610605470,20,0],[3225602,30000,0],[2429688,60000,0],[2429688,600000
+		,0],[2429688,600000,0],[681640,60000,0],[0,1000,0],[0,1000,0],[0,1000,0],[0,1000,0],[0,1000,0],[0,1000,0],[0,1000,0],[0,1000,0],[0,1000,0
+		],[-1609026838,30000,30000],[6307,60000,0],[2109092,600000,0],[1745575,600000,0]]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="TIMER" Dimensions="50">
+<Element Index="[0]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[1]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[2]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[3]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[4]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="30000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[5]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1500000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[6]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="600000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[7]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="360000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[8]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="360000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[9]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="360000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="138620"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[10]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[11]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="300"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[12]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[13]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="300"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[14]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[15]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[16]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="300"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[17]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[18]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="300"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[19]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[20]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[21]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="300"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[22]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1584"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[23]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="300"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[24]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="2460"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[25]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="20000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[26]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="20000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[27]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="20000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="20000"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[28]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[29]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[30]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[31]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="20"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[32]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="30000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[33]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[34]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="600000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[35]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="600000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[36]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[37]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[38]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[39]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[40]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[41]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[42]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[43]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[44]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[45]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[46]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="30000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="30000"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Element>
+<Element Index="[47]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[48]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="600000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+<Element Index="[49]">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="600000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Element>
+</Array>
+</Data>
+</Tag>
+<Tag Name="TMR_PID1" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[-1072156036,100,42]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="42"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="TMR_PID2" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[-1072156055,100,82]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="82"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="TMR_PID3" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[-1609026948,100,100]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="W00" TagType="Base" DataType="INT" Dimensions="100" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand="[10]">
+<![CDATA[Booth 1 Air Pressure]]>
+</Comment>
+<Comment Operand="[11]">
+<![CDATA[Booth 2 Air Pressure]]>
+</Comment>
+<Comment Operand="[20]">
+<![CDATA[Booth 1 Air Pressure Setpoint]]>
+</Comment>
+<Comment Operand="[21]">
+<![CDATA[Booth 1 Air Pressure Error]]>
+</Comment>
+<Comment Operand="[22]">
+<![CDATA[Booth 1 Air Pressure Error Absolute]]>
+</Comment>
+<Comment Operand="[24]">
+<![CDATA[Booth 2 Air Pressure Error]]>
+</Comment>
+<Comment Operand="[25]">
+<![CDATA[Booth 2 Air Pressure Error Absolute]]>
+</Comment>
+<Comment Operand="[26]">
+<![CDATA[Both Booths Air Pressure Setpoint]]>
+</Comment>
+<Comment Operand="[35]">
+<![CDATA[Booth 1&2 Temperature]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[[0,0,0,0,0,0,0,0,0,0,4010,5073,4765,14500,0,7000,0,0,0,0,5000,322,322,4975,121,121,4975,210,210,0,0,200,48,33,14866,7433
+		,0,0,0,0,0,0,0,15000,0,7500,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,15000,0,7400,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="INT" Dimensions="100" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="4010"/>
+<Element Index="[11]" Value="5073"/>
+<Element Index="[12]" Value="4765"/>
+<Element Index="[13]" Value="14500"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="7000"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="5000"/>
+<Element Index="[21]" Value="322"/>
+<Element Index="[22]" Value="322"/>
+<Element Index="[23]" Value="4975"/>
+<Element Index="[24]" Value="121"/>
+<Element Index="[25]" Value="121"/>
+<Element Index="[26]" Value="4975"/>
+<Element Index="[27]" Value="210"/>
+<Element Index="[28]" Value="210"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="200"/>
+<Element Index="[32]" Value="48"/>
+<Element Index="[33]" Value="33"/>
+<Element Index="[34]" Value="14866"/>
+<Element Index="[35]" Value="7433"/>
+<Element Index="[36]" Value="0"/>
+<Element Index="[37]" Value="0"/>
+<Element Index="[38]" Value="0"/>
+<Element Index="[39]" Value="0"/>
+<Element Index="[40]" Value="0"/>
+<Element Index="[41]" Value="0"/>
+<Element Index="[42]" Value="0"/>
+<Element Index="[43]" Value="15000"/>
+<Element Index="[44]" Value="0"/>
+<Element Index="[45]" Value="7500"/>
+<Element Index="[46]" Value="0"/>
+<Element Index="[47]" Value="0"/>
+<Element Index="[48]" Value="0"/>
+<Element Index="[49]" Value="0"/>
+<Element Index="[50]" Value="0"/>
+<Element Index="[51]" Value="0"/>
+<Element Index="[52]" Value="0"/>
+<Element Index="[53]" Value="0"/>
+<Element Index="[54]" Value="0"/>
+<Element Index="[55]" Value="0"/>
+<Element Index="[56]" Value="0"/>
+<Element Index="[57]" Value="0"/>
+<Element Index="[58]" Value="0"/>
+<Element Index="[59]" Value="0"/>
+<Element Index="[60]" Value="0"/>
+<Element Index="[61]" Value="0"/>
+<Element Index="[62]" Value="0"/>
+<Element Index="[63]" Value="0"/>
+<Element Index="[64]" Value="0"/>
+<Element Index="[65]" Value="0"/>
+<Element Index="[66]" Value="0"/>
+<Element Index="[67]" Value="0"/>
+<Element Index="[68]" Value="0"/>
+<Element Index="[69]" Value="0"/>
+<Element Index="[70]" Value="0"/>
+<Element Index="[71]" Value="0"/>
+<Element Index="[72]" Value="0"/>
+<Element Index="[73]" Value="15000"/>
+<Element Index="[74]" Value="0"/>
+<Element Index="[75]" Value="7400"/>
+<Element Index="[76]" Value="0"/>
+<Element Index="[77]" Value="0"/>
+<Element Index="[78]" Value="0"/>
+<Element Index="[79]" Value="0"/>
+<Element Index="[80]" Value="0"/>
+<Element Index="[81]" Value="0"/>
+<Element Index="[82]" Value="0"/>
+<Element Index="[83]" Value="0"/>
+<Element Index="[84]" Value="0"/>
+<Element Index="[85]" Value="0"/>
+<Element Index="[86]" Value="0"/>
+<Element Index="[87]" Value="0"/>
+<Element Index="[88]" Value="0"/>
+<Element Index="[89]" Value="0"/>
+<Element Index="[90]" Value="0"/>
+<Element Index="[91]" Value="0"/>
+<Element Index="[92]" Value="0"/>
+<Element Index="[93]" Value="0"/>
+<Element Index="[94]" Value="0"/>
+<Element Index="[95]" Value="0"/>
+<Element Index="[96]" Value="0"/>
+<Element Index="[97]" Value="0"/>
+<Element Index="[98]" Value="0"/>
+<Element Index="[99]" Value="0"/>
+</Array>
+</Data>
+</Tag>
+<Tag Name="W16" TagType="Base" DataType="INT" Dimensions="100" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand="[1]">
+<![CDATA[Booth 1 PID Setpoint]]>
+</Comment>
+<Comment Operand="[2]">
+<![CDATA[Booth 1 Temperature]]>
+</Comment>
+<Comment Operand="[34]">
+<![CDATA[Booth 2 Temperature]]>
+</Comment>
+</Comments>
+<Data Format="L5K">
+<![CDATA[[0,7000,6627,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7500,7456,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7400
+		,7433,0,2872,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="INT" Dimensions="100" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="7000"/>
+<Element Index="[2]" Value="6627"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="0"/>
+<Element Index="[32]" Value="0"/>
+<Element Index="[33]" Value="7500"/>
+<Element Index="[34]" Value="7456"/>
+<Element Index="[35]" Value="0"/>
+<Element Index="[36]" Value="0"/>
+<Element Index="[37]" Value="0"/>
+<Element Index="[38]" Value="0"/>
+<Element Index="[39]" Value="0"/>
+<Element Index="[40]" Value="0"/>
+<Element Index="[41]" Value="0"/>
+<Element Index="[42]" Value="0"/>
+<Element Index="[43]" Value="0"/>
+<Element Index="[44]" Value="0"/>
+<Element Index="[45]" Value="0"/>
+<Element Index="[46]" Value="0"/>
+<Element Index="[47]" Value="0"/>
+<Element Index="[48]" Value="0"/>
+<Element Index="[49]" Value="0"/>
+<Element Index="[50]" Value="0"/>
+<Element Index="[51]" Value="0"/>
+<Element Index="[52]" Value="0"/>
+<Element Index="[53]" Value="0"/>
+<Element Index="[54]" Value="0"/>
+<Element Index="[55]" Value="0"/>
+<Element Index="[56]" Value="0"/>
+<Element Index="[57]" Value="0"/>
+<Element Index="[58]" Value="0"/>
+<Element Index="[59]" Value="0"/>
+<Element Index="[60]" Value="0"/>
+<Element Index="[61]" Value="0"/>
+<Element Index="[62]" Value="0"/>
+<Element Index="[63]" Value="0"/>
+<Element Index="[64]" Value="0"/>
+<Element Index="[65]" Value="7400"/>
+<Element Index="[66]" Value="7433"/>
+<Element Index="[67]" Value="0"/>
+<Element Index="[68]" Value="2872"/>
+<Element Index="[69]" Value="0"/>
+<Element Index="[70]" Value="0"/>
+<Element Index="[71]" Value="0"/>
+<Element Index="[72]" Value="0"/>
+<Element Index="[73]" Value="0"/>
+<Element Index="[74]" Value="0"/>
+<Element Index="[75]" Value="0"/>
+<Element Index="[76]" Value="0"/>
+<Element Index="[77]" Value="0"/>
+<Element Index="[78]" Value="0"/>
+<Element Index="[79]" Value="0"/>
+<Element Index="[80]" Value="0"/>
+<Element Index="[81]" Value="0"/>
+<Element Index="[82]" Value="0"/>
+<Element Index="[83]" Value="0"/>
+<Element Index="[84]" Value="0"/>
+<Element Index="[85]" Value="0"/>
+<Element Index="[86]" Value="0"/>
+<Element Index="[87]" Value="0"/>
+<Element Index="[88]" Value="0"/>
+<Element Index="[89]" Value="0"/>
+<Element Index="[90]" Value="0"/>
+<Element Index="[91]" Value="0"/>
+<Element Index="[92]" Value="0"/>
+<Element Index="[93]" Value="0"/>
+<Element Index="[94]" Value="0"/>
+<Element Index="[95]" Value="0"/>
+<Element Index="[96]" Value="0"/>
+<Element Index="[97]" Value="0"/>
+<Element Index="[98]" Value="0"/>
+<Element Index="[99]" Value="0"/>
+</Array>
+</Data>
+</Tag>
+</Tags>
+<Programs Use="Context">
+<Program Use="Target" Name="MainProgram" TestEdits="false" MainRoutineName="MainRoutine" Disabled="false" UseAsFolder="false">
+<Tags/>
+<Routines>
+<Routine Name="IO_Mapping" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.0)OTE(R000.0);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.1)OTE(R000.1);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.2)OTE(R000.2);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.3)OTE(R000.3);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.4)OTE(R000.4);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.5)OTE(R000.5);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.6)OTE(R000.6);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.7)OTE(R000.7);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.8)OTE(R000.8);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.9)OTE(R000.9);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.10)OTE(R000.10);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.11)OTE(R000.11);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.12)OTE(R000.12);]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.13)OTE(R000.13);]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.14)OTE(R000.14);]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Text>
+<![CDATA[XIC(Local:1:I.Data.15)OTE(R000.15);]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Text>
+<![CDATA[XIC(R001.0)OTE(Local:2:O.Data.0);]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Text>
+<![CDATA[XIC(R001.1)OTE(Local:2:O.Data.1);]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Text>
+<![CDATA[XIC(R001.2)OTE(Local:2:O.Data.2);]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Text>
+<![CDATA[XIC(R001.3)OTE(Local:2:O.Data.3);]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Text>
+<![CDATA[XIC(R001.4)OTE(Local:2:O.Data.4);]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Text>
+<![CDATA[XIC(R001.5)OTE(Local:2:O.Data.5);]]>
+</Text>
+</Rung>
+<Rung Number="24" Type="N">
+<Text>
+<![CDATA[XIC(R001.6)OTE(Local:2:O.Data.6);]]>
+</Text>
+</Rung>
+<Rung Number="25" Type="N">
+<Text>
+<![CDATA[XIC(R001.7)OTE(Local:2:O.Data.7);]]>
+</Text>
+</Rung>
+<Rung Number="26" Type="N">
+<Text>
+<![CDATA[XIC(R001.8)OTE(Local:2:O.Data.8);]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Text>
+<![CDATA[XIC(R001.9)OTE(Local:2:O.Data.9);]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Text>
+<![CDATA[XIC(R001.10)OTE(Local:2:O.Data.10);]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Text>
+<![CDATA[XIC(R001.11)OTE(Local:2:O.Data.11);]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Text>
+<![CDATA[XIC(R001.12)OTE(Local:2:O.Data.12);]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Text>
+<![CDATA[XIC(R001.13)OTE(Local:2:O.Data.13);]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Text>
+<![CDATA[XIC(R001.14)OTE(Local:2:O.Data.14);]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Text>
+<![CDATA[XIC(R001.15)OTE(Local:2:O.Data.15);]]>
+</Text>
+</Rung>
+<Rung Number="34" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="35" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.0)OTE(R002.0);]]>
+</Text>
+</Rung>
+<Rung Number="36" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.1)OTE(R002.1);]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.2)OTE(R002.2);]]>
+</Text>
+</Rung>
+<Rung Number="38" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.3)OTE(R002.3);]]>
+</Text>
+</Rung>
+<Rung Number="39" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.4)OTE(R002.4);]]>
+</Text>
+</Rung>
+<Rung Number="40" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.5)OTE(R002.5);]]>
+</Text>
+</Rung>
+<Rung Number="41" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.6)OTE(R002.6);]]>
+</Text>
+</Rung>
+<Rung Number="42" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.7)OTE(R002.7);]]>
+</Text>
+</Rung>
+<Rung Number="43" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.8)OTE(R002.8);]]>
+</Text>
+</Rung>
+<Rung Number="44" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.9)OTE(R002.9);]]>
+</Text>
+</Rung>
+<Rung Number="45" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.10)OTE(R002.10);]]>
+</Text>
+</Rung>
+<Rung Number="46" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.11)OTE(R002.11);]]>
+</Text>
+</Rung>
+<Rung Number="47" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.12)OTE(R002.12);]]>
+</Text>
+</Rung>
+<Rung Number="48" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.13)OTE(R002.13);]]>
+</Text>
+</Rung>
+<Rung Number="49" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.14)OTE(R002.14);]]>
+</Text>
+</Rung>
+<Rung Number="50" Type="N">
+<Text>
+<![CDATA[XIC(Local:3:I.Data.15)OTE(R002.15);]]>
+</Text>
+</Rung>
+<Rung Number="51" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="52" Type="N">
+<Text>
+<![CDATA[XIC(R003.0)OTE(Local:4:O.Data.0);]]>
+</Text>
+</Rung>
+<Rung Number="53" Type="N">
+<Text>
+<![CDATA[XIC(R003.1)OTE(Local:4:O.Data.1);]]>
+</Text>
+</Rung>
+<Rung Number="54" Type="N">
+<Text>
+<![CDATA[XIC(R003.2)OTE(Local:4:O.Data.2);]]>
+</Text>
+</Rung>
+<Rung Number="55" Type="N">
+<Text>
+<![CDATA[XIC(R003.3)OTE(Local:4:O.Data.3);]]>
+</Text>
+</Rung>
+<Rung Number="56" Type="N">
+<Text>
+<![CDATA[XIC(R003.4)OTE(Local:4:O.Data.4);]]>
+</Text>
+</Rung>
+<Rung Number="57" Type="N">
+<Text>
+<![CDATA[XIC(R003.5)OTE(Local:4:O.Data.5);]]>
+</Text>
+</Rung>
+<Rung Number="58" Type="N">
+<Text>
+<![CDATA[XIC(R003.6)OTE(Local:4:O.Data.6);]]>
+</Text>
+</Rung>
+<Rung Number="59" Type="N">
+<Text>
+<![CDATA[XIC(R003.7)OTE(Local:4:O.Data.7);]]>
+</Text>
+</Rung>
+<Rung Number="60" Type="N">
+<Text>
+<![CDATA[XIC(R003.4)OTE(Local:4:O.Data.8);]]>
+</Text>
+</Rung>
+<Rung Number="61" Type="N">
+<Text>
+<![CDATA[XIC(R003.5)OTE(Local:4:O.Data.9);]]>
+</Text>
+</Rung>
+<Rung Number="62" Type="N">
+<Text>
+<![CDATA[XIC(R003.6)OTE(Local:4:O.Data.10);]]>
+</Text>
+</Rung>
+<Rung Number="63" Type="N">
+<Text>
+<![CDATA[XIC(R003.7)OTE(Local:4:O.Data.11);]]>
+</Text>
+</Rung>
+<Rung Number="64" Type="N">
+<Text>
+<![CDATA[XIC(R003.12)OTE(Local:4:O.Data.12);]]>
+</Text>
+</Rung>
+<Rung Number="65" Type="N">
+<Text>
+<![CDATA[XIC(R003.13)OTE(Local:4:O.Data.13);]]>
+</Text>
+</Rung>
+<Rung Number="66" Type="N">
+<Text>
+<![CDATA[XIC(R003.14)OTE(Local:4:O.Data.14);]]>
+</Text>
+</Rung>
+<Rung Number="67" Type="N">
+<Text>
+<![CDATA[XIC(R003.15)OTE(Local:4:O.Data.15);]]>
+</Text>
+</Rung>
+<Rung Number="68" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="69" Type="N">
+<Text>
+<![CDATA[MOV(Local:5:I.Ch0Data,R004);]]>
+</Text>
+</Rung>
+<Rung Number="70" Type="N">
+<Text>
+<![CDATA[MOV(Local:5:I.Ch1Data,R005);]]>
+</Text>
+</Rung>
+<Rung Number="71" Type="N">
+<Text>
+<![CDATA[MOV(Local:5:I.Ch2Data,R006_Raw)CPT(R006,((R006_Raw / 10000) * 23500) - 6000);]]>
+</Text>
+</Rung>
+<Rung Number="72" Type="N">
+<Text>
+<![CDATA[MOV(Local:5:I.Ch3Data,R007_Raw)CPT(R007,((R007_Raw / 10000) * 23500) - 6000);]]>
+</Text>
+</Rung>
+<Rung Number="73" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="74" Type="N">
+<Text>
+<![CDATA[MOV(R008,Local:6:O.Ch0Data);]]>
+</Text>
+</Rung>
+<Rung Number="75" Type="N">
+<Text>
+<![CDATA[MOV(R009,Local:6:O.Ch1Data);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+<Routine Name="MainRoutine" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Text>
+<![CDATA[OTE(F0.15);]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Text>
+<![CDATA[ONS(ONS.0)OTE(F1.0);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Text>
+<![CDATA[XIC(nate_toggle)JSR(IO_Mapping,0);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Text>
+<![CDATA[JSR(PRG,0);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+<Routine Name="PRG" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[This first rung has been disabled by contact M070.0 but allows for ease of resetting time totalers.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Text>
+<![CDATA[XIC(M[70].0)[MOV(301,K[10]) ,MOV(142,K[15]) ,MOV(163,K[17]) ];]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Comment>
+<![CDATA[The following 3 rungs limit the purge times to a minimum or 3 minutes.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)LES(PRE[7],600)MOV(1800,PRE[7]);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)LES(PRE[6],1800)MOV(1800,PRE[6]);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)LES(PRE[8],1800)MOV(1800,PRE[8]);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Comment>
+<![CDATA[The next rung presents the bake cycles to shut down after cooldown.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)[OTE(BC_Off_1) ,OTE(BC_Off_2) ,OTE(BC_Off_3) ];]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)[MOV(2778,W00[15]) ,MOV(2778,W00[45]) ,MOV(2778,W00[75]) ];]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)[MOV(3857,W00[13]) ,MOV(3857,W00[43]) ,MOV(3857,W00[73]) ];]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Text>
+<![CDATA[XIC(R000.15)OTE(M[2].1);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Text>
+<![CDATA[XIO(R000.15)OTE(M[2].0);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Text>
+<![CDATA[XIC(R000.15)ONS(ONS.1)MOV(1,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Text>
+<![CDATA[XIO(R000.15)ONS(ONS.2)MOV(0,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[2].3) ,XIC(M[40].5) ]XIO(TMR[37].DN)[MOV(5,M[100]) ,OTE(M[40].5) ,TON(TMR[37],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[2].4) ,XIC(M[40].6) ]XIO(TMR[38].DN)[MOV(6,M[100]) ,OTE(M[40].6) ,TON(TMR[38],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[2].5) ,XIC(M[40].7) ]XIO(TMR[39].DN)[MOV(7,M[100]) ,OTE(M[40].7) ,TON(TMR[39],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[32].3) ,XIC(M[41].5) ]XIO(TMR[40].DN)[MOV(15,M[100]) ,OTE(M[41].5) ,TON(TMR[40],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[32].4) ,XIC(M[41].6) ]XIO(TMR[41].DN)[MOV(16,M[100]) ,OTE(M[41].6) ,TON(TMR[41],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[32].5) ,XIC(M[41].7) ]XIO(TMR[42].DN)[MOV(17,M[100]) ,OTE(M[41].7) ,TON(TMR[42],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)[XIC(M[62].3) ,XIC(M[42].5) ]XIO(TMR[43].DN)[MOV(25,M[100]) ,OTE(M[42].5) ,TON(TMR[43],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)[XIC(M[62].4) ,XIC(M[42].6) ]XIO(TMR[44].DN)[MOV(26,M[100]) ,OTE(M[42].6) ,TON(TMR[44],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)[XIC(M[62].5) ,XIC(M[42].7) ]XIO(TMR[45].DN)[MOV(27,M[100]) ,OTE(M[42].7) ,TON(TMR[45],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Text>
+<![CDATA[[XIC(M[3].0) ,XIC(M[5].0) ]XIO(M[0].13)XIO(M[60].13)OTE(R001.3);]]>
+</Text>
+</Rung>
+<Rung Number="24" Type="N">
+<Text>
+<![CDATA[[XIC(M[4].0) ,XIC(M[6].0) ]XIO(M[30].13)XIO(M[60].13)OTE(R001.11);]]>
+</Text>
+</Rung>
+<Rung Number="25" Type="N">
+<Text>
+<![CDATA[[XIC(M[3].1) ,XIC(M[5].1) ]OTE(R001.5);]]>
+</Text>
+</Rung>
+<Rung Number="26" Type="N">
+<Text>
+<![CDATA[[XIC(M[4].1) ,XIC(M[6].1) ]OTE(R001.13);]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Text>
+<![CDATA[[XIC(M[3].2) ,XIC(M[5].2) ]OTE(R001.0);]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Text>
+<![CDATA[[XIC(M[4].2) ,XIC(M[6].2) ]OTE(R001.8);]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Text>
+<![CDATA[[XIC(M[3].3) ,XIC(M[5].3) ]OTE(R003.0);]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Text>
+<![CDATA[[XIC(M[4].3) ,XIC(M[6].3) ]OTE(R003.4);]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Text>
+<![CDATA[[XIC(M[3].4) ,XIC(M[5].4) ]OTE(R001.1);]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Text>
+<![CDATA[[XIC(M[4].4) ,XIC(M[6].4) ]OTE(R001.9);]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Text>
+<![CDATA[[XIC(M[3].5) ,XIC(M[5].5) ]OTE(R001.4);]]>
+</Text>
+</Rung>
+<Rung Number="34" Type="N">
+<Text>
+<![CDATA[[XIC(M[4].5) ,XIC(M[6].5) ]OTE(R001.12);]]>
+</Text>
+</Rung>
+<Rung Number="35" Type="N">
+<Text>
+<![CDATA[[XIC(M[3].6) ,XIC(M[5].6) ]OTE(R001.2);]]>
+</Text>
+</Rung>
+<Rung Number="36" Type="N">
+<Text>
+<![CDATA[[XIC(M[4].6) ,XIC(M[6].6) ]OTE(R001.10);]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
+<Text>
+<![CDATA[[XIC(M[8].1) ,XIC(M[9].3) ]OTE(R003.1);]]>
+</Text>
+</Rung>
+<Rung Number="38" Type="N">
+<Text>
+<![CDATA[[XIC(M[9].1) ,XIC(M[9].5) ]OTE(R003.5);]]>
+</Text>
+</Rung>
+<Rung Number="39" Type="N">
+<Text>
+<![CDATA[[XIC(M[8].0) ,XIC(M[9].2) ]OTE(R003.2);]]>
+</Text>
+</Rung>
+<Rung Number="40" Type="N">
+<Text>
+<![CDATA[[XIC(M[9].0) ,XIC(M[9].4) ]OTE(R003.6);]]>
+</Text>
+</Rung>
+<Rung Number="41" Type="N">
+<Text>
+<![CDATA[XIC(R003.0)XIC(R000.1)TOF(TMR[0],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="42" Type="N">
+<Text>
+<![CDATA[XIC(TMR[0].DN)OTE(M[0].3);]]>
+</Text>
+</Rung>
+<Rung Number="43" Type="N">
+<Text>
+<![CDATA[XIO(R000.1)ONS(ONS.3)XIC(R003.0)XIC(M[0].3)ADD(1,K[5],K[5]);]]>
+</Text>
+</Rung>
+<Rung Number="44" Type="N">
+<Text>
+<![CDATA[XIC(R000.3)XIC(R000.6)TOF(TMR[1],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="45" Type="N">
+<Text>
+<![CDATA[XIC(TMR[1].DN)OTE(M[0].5);]]>
+</Text>
+</Rung>
+<Rung Number="46" Type="N">
+<Text>
+<![CDATA[XIO(R000.6)ONS(ONS.4)XIC(R000.3)XIC(M[0].5)ADD(1,K[7],K[7]);]]>
+</Text>
+</Rung>
+<Rung Number="47" Type="N">
+<Text>
+<![CDATA[XIC(R000.3)XIC(R000.7)TOF(TMR[2],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="48" Type="N">
+<Text>
+<![CDATA[XIC(TMR[2].DN)OTE(M[0].6);]]>
+</Text>
+</Rung>
+<Rung Number="49" Type="N">
+<Text>
+<![CDATA[XIO(R000.7)ONS(ONS.5)XIC(R000.3)XIC(M[0].6)ADD(1,K[8],K[8]);]]>
+</Text>
+</Rung>
+<Rung Number="50" Type="N">
+<Text>
+<![CDATA[XIC(R000.3)XIC(R000.9)TOF(TMR[3],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="51" Type="N">
+<Text>
+<![CDATA[XIC(TMR[3].DN)OTE(M[0].7);]]>
+</Text>
+</Rung>
+<Rung Number="52" Type="N">
+<Text>
+<![CDATA[XIO(R000.9)ONS(ONS.6)XIC(R000.3)XIC(M[0].7)ADD(1,K[9],K[9]);]]>
+</Text>
+</Rung>
+<Rung Number="53" Type="N">
+<Text>
+<![CDATA[XIC(R003.4)XIC(R002.1)TOF(TMR[28],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="54" Type="N">
+<Text>
+<![CDATA[XIC(TMR[28].DN)OTE(M[30].3);]]>
+</Text>
+</Rung>
+<Rung Number="55" Type="N">
+<Text>
+<![CDATA[XIO(R002.1)ONS(ONS.6)XIC(R003.4)XIC(M[30].3)ADD(1,K[35],K[35]);]]>
+</Text>
+</Rung>
+<Rung Number="56" Type="N">
+<Text>
+<![CDATA[XIC(R002.3)XIC(R002.6)TOF(TMR[29],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="57" Type="N">
+<Text>
+<![CDATA[XIC(TMR[29].DN)OTE(M[30].5);]]>
+</Text>
+</Rung>
+<Rung Number="58" Type="N">
+<Text>
+<![CDATA[XIO(R002.6)ONS(ONS.7)XIC(R002.3)XIC(M[30].5)ADD(1,K[37],K[37]);]]>
+</Text>
+</Rung>
+<Rung Number="59" Type="N">
+<Text>
+<![CDATA[XIC(R002.3)XIC(R002.7)TOF(TMR[30],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="60" Type="N">
+<Text>
+<![CDATA[XIC(TMR[30].DN)OTE(M[30].6);]]>
+</Text>
+</Rung>
+<Rung Number="61" Type="N">
+<Text>
+<![CDATA[XIO(R002.7)ONS(ONS.9)XIC(R002.3)XIC(M[30].6)ADD(1,K[38],K[38]);]]>
+</Text>
+</Rung>
+<Rung Number="62" Type="N">
+<Text>
+<![CDATA[XIC(R002.3)XIC(R002.9)TOF(TMR[31],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="63" Type="N">
+<Text>
+<![CDATA[XIC(TMR[31].DN)OTE(M[30].7);]]>
+</Text>
+</Rung>
+<Rung Number="64" Type="N">
+<Text>
+<![CDATA[XIO(R002.9)ONS(ONS.8)XIC(R002.3)XIC(M[30].7)ADD(1,K[39],K[39]);]]>
+</Text>
+</Rung>
+<Rung Number="65" Type="N">
+<Text>
+<![CDATA[GRT(K[5],4)XIC(M[70].0)[OTE(M[10].0) ,MOV(M[101],M[102]) ,MOV(M[100],M[31]) ];]]>
+</Text>
+</Rung>
+<Rung Number="66" Type="N">
+<Text>
+<![CDATA[GRT(K[7],4)XIC(M[70].0)[OTE(M[10].1) ,MOV(M[101],M[102]) ];]]>
+</Text>
+</Rung>
+<Rung Number="67" Type="N">
+<Text>
+<![CDATA[GRT(K[8],4)XIC(M[70].0)[OTE(M[10].2) ,MOV(M[101],M[102]) ];]]>
+</Text>
+</Rung>
+<Rung Number="68" Type="N">
+<Text>
+<![CDATA[GRT(K[9],4)XIC(M[70].0)[OTE(M[10].3) ,MOV(M[101],M[102]) ];]]>
+</Text>
+</Rung>
+<Rung Number="69" Type="N">
+<Text>
+<![CDATA[GRT(K[35],4)XIC(M[70].0)[OTE(M[10].4) ,MOV(M[101],M[102]) ];]]>
+</Text>
+</Rung>
+<Rung Number="70" Type="N">
+<Text>
+<![CDATA[GRT(K[37],4)XIC(M[70].0)[OTE(M[10].5) ,MOV(M[101],M[102]) ];]]>
+</Text>
+</Rung>
+<Rung Number="71" Type="N">
+<Text>
+<![CDATA[GRT(K[38],4)XIC(M[70].0)[OTE(M[10].6) ,MOV(M[101],M[102]) ];]]>
+</Text>
+</Rung>
+<Rung Number="72" Type="N">
+<Text>
+<![CDATA[GRT(K[39],4)XIC(M[70].0)[OTE(M[10].7) ,MOV(M[101],M[102]) ];]]>
+</Text>
+</Rung>
+<Rung Number="73" Type="N">
+<Text>
+<![CDATA[XIO(M[10].10)[XIC(M[10].9) ,XIC(M[10].8) ][OTE(M[10].8) ,MOV(M[102],M[100]) ,XIC(M[10].0) MOV(0,K[5]) ,XIC(M[10].1) MOV(0,K[7]) ,XIC(M[10].2) MOV(0,K[8]) ,XIC(M[10].3) MOV(0,K[9]) ,XIC(M[10].4) MOV(0,K[35]) ,XIC(M[10].5) MOV(0,K[37]) ,XIC(M[10].6) MOV(0,K[38]) ,XIC(M[10].7) MOV(0,K[39]) ,OTE(M[10].10) ];]]>
+</Text>
+</Rung>
+<Rung Number="74" Type="N">
+<Comment>
+<![CDATA[Screen Cleaning.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="75" Type="N">
+<Text>
+<![CDATA[XIC(M[1].6)MOV(8,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="76" Type="N">
+<Text>
+<![CDATA[XIO(M[7].0)[XIC(M[1].8) ,XIC(M[1].12) ][XIO(M[1].15) OTE(M[1].12) ,[XIC(M[1].9) ,XIC(M[1].13) ] [OTE(M[1].13) ,[XIC(M[1].10) ,XIC(M[1].14) ] [OTE(M[1].14) ,XIC(M[1].11) OTE(M[1].15) ] ] ];]]>
+</Text>
+</Rung>
+<Rung Number="77" Type="N">
+<Text>
+<![CDATA[XIC(M[1].15)MOV(1,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="78" Type="N">
+<Comment>
+<![CDATA[End of screen cleaning.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="79" Type="N">
+<Comment>
+<![CDATA[Code 2 - 2 booths.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="80" Type="N">
+<Text>
+<![CDATA[XIO(M[7].12)[XIC(M[7].6) ,XIC(M[7].8) ][OTE(M[7].8) ,MOV(0,M[100]) ,[XIC(M[7].7) ,XIC(M[7].9) ] [OTE(M[7].9) ,[XIC(M[7].6) ,XIC(M[7].10) ] [OTE(M[7].10) ,[XIC(M[7].7) ,XIC(M[7].11) ] OTE(M[7].11) ] ] ];]]>
+</Text>
+</Rung>
+<Rung Number="81" Type="N">
+<Text>
+<![CDATA[XIC(M[7].11)[MOV(10001,M[100]) ,OTE(M[7].12) ];]]>
+</Text>
+</Rung>
+<Rung Number="82" Type="N">
+<Comment>
+<![CDATA[Code - 1 booth.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="83" Type="N">
+<Text>
+<![CDATA[XIO(M[6].12)[XIC(M[6].13) ,XIC(M[6].8) ][OTE(M[6].8) ,MOV(1,M[100]) ,[XIC(M[6].7) ,XIC(M[6].9) ] [OTE(M[6].9) ,[XIC(M[6].13) ,XIC(M[6].10) ] [OTE(M[6].10) ,[XIC(M[6].7) ,XIC(M[6].11) ] OTE(M[6].11) ] ] ];]]>
+</Text>
+</Rung>
+<Rung Number="84" Type="N">
+<Text>
+<![CDATA[XIC(M[6].11)[MOV(10001,M[100]) ,OTE(M[6].12) ];]]>
+</Text>
+</Rung>
+<Rung Number="85" Type="N">
+<Comment>
+<![CDATA[End of code.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="86" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(R000.0)XIO(R000.11)XIO(M[0].1)XIO(M[0].8)XIO(M[40].8)[XIC(M[0].2) ,XIC(M[0].0) ]XIO(M[40].11)OTE(M[0].0);]]>
+</Text>
+</Rung>
+<Rung Number="87" Type="N">
+<Text>
+<![CDATA[XIO(M[0].8)[XIC(M[1].0) ,XIC(M[3].0) ]XIO(M[0].15)XIO(M[60].15)OTE(M[3].0);]]>
+</Text>
+</Rung>
+<Rung Number="88" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIO(M[0].13)XIC(M[0].3)XIC(R000.12)XIC(R000.9)OTE(M[3].1);]]>
+</Text>
+</Rung>
+<Rung Number="89" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)OTE(M[3].2);]]>
+</Text>
+</Rung>
+<Rung Number="90" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)TON(TMR[4],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="91" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)[XIC(R000.8) XIO(TMR[4].DN) ,XIC(M[0].7) ]OTE(M[3].3);]]>
+</Text>
+</Rung>
+<Rung Number="92" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[0].3)OTE(M[3].4);]]>
+</Text>
+</Rung>
+<Rung Number="93" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIO(M[0].3)XIO(M[0].7)XIC(TMR[4].DN)OTE(M[40].8);]]>
+</Text>
+</Rung>
+<Rung Number="94" Type="N">
+<Comment>
+<![CDATA[This section performs the Booth 1 time totaling.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="95" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(R000.3)XIO(M[2].2)TON(TMR[7],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="96" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[7].DN)ONS(ONS.10)ADD(1,K[10],K[10]);]]>
+</Text>
+</Rung>
+<Rung Number="97" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[7].DN)OTE(M[2].2);]]>
+</Text>
+</Rung>
+<Rung Number="98" Type="N">
+<Text>
+<![CDATA[GRT(K[10],0)DIV(K[10],10,B1_Runtime);]]>
+</Text>
+</Rung>
+<Rung Number="99" Type="N">
+<Comment>
+<![CDATA[End of time totaling.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="100" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(R000.3)[XIO(M[0].13) XIC(R000.5) ,XIC(M[0].13) XIC(R000.4) ]XIC(M[0].5)XIC(M[0].6)OTE(M[0].9);]]>
+</Text>
+</Rung>
+<Rung Number="101" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[0].10) ,XIC(M[40].0) ]XIO(M[40].1)OTE(M[40].0);]]>
+</Text>
+</Rung>
+<Rung Number="102" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(R000.3)[XIC(M[40].0) ,XIC(M[0].11) ]XIC(M[0].9)[XIC(TMR[25].DN) OTE(M[3].5) ,TON(TMR[25],?,?) ,XIO(TMR[25].DN) MOV(2300,R008) ];]]>
+</Text>
+</Rung>
+<Rung Number="103" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[0].9)XIC(M[40].9)MOV(4,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="104" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[0].9)XIC(M[40].10)[OTE(M[0].12) ,MOV(2,M[100]) ,XIO(R000.4) OTE(M[40].11) ];]]>
+</Text>
+</Rung>
+<Rung Number="105" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[0].9)XIC(M[40].13)MOV(2,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="106" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIO(M[0].4)[XIC(M[0].12) ,XIC(M[0].13) ]OTE(M[0].13);]]>
+</Text>
+</Rung>
+<Rung Number="107" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[1].3) ,XIC(M[1].4) XIO(M[1].5) ]OTE(M[1].4);]]>
+</Text>
+</Rung>
+<Rung Number="108" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[1].2) ,XIC(M[1].5) XIO(M[1].4) ]OTE(M[1].5);]]>
+</Text>
+</Rung>
+<Rung Number="109" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[0].13)[TON(TMR[36],?,?) ,OTE(M[40].2) ];]]>
+</Text>
+</Rung>
+<Rung Number="110" Type="N">
+<Text>
+<![CDATA[MUL(B1_Purge_Time,60000,TMR[36].PRE)DIV(TMR[36].ACC,60000,B1_Purge_Time_ACC);]]>
+</Text>
+</Rung>
+<Rung Number="111" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIO(M[40].3)MOV(W00[15],W16[1]);]]>
+</Text>
+</Rung>
+<Rung Number="112" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[36].DN)[OTE(M[0].14) ,XIO(TMR[5].DN) OTE(M[40].3) ,XIO(TMR[5].DN) MOV(W00[13],W16[1]) ];]]>
+</Text>
+</Rung>
+<Rung Number="113" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].14)[TON(TMR[5],?,?) ,XIO(TMR[5].DN) [OTE(M[3].6) ,OTE(M[0].11) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="114" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[0].13)XIC(M[40].14)MOV(TMR[5].PRE,TMR[5].ACC);]]>
+</Text>
+</Rung>
+<Rung Number="115" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[5].DN)[TON(TMR[6],?,?) ,OTE(M[40].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="116" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[6].DN)[XIC(M[1].5) OTE(M[0].8) ,XIC(M[1].4) OTE(M[0].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="117" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[MOV(R004,W00[10]) ,MOV(R005,W00[11]) ];]]>
+</Text>
+</Rung>
+<Rung Number="118" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)MOV(R005,W00[12]);]]>
+</Text>
+</Rung>
+<Rung Number="119" Type="N">
+<Text>
+<![CDATA[MUL(B1_Bake_Time,60000,TMR[5].PRE)DIV(TMR[5].ACC,60000,B1_Bake_Time_ACC);]]>
+</Text>
+</Rung>
+<Rung Number="120" Type="N">
+<Comment>
+<![CDATA[This section controls Booth 1 Auto Balance.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="121" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[3].3)XIC(M[0].3)XIC(M[0].7)[OTE(M[3].10) ,TON(TMR[10],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="122" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)MOV(5000,W00[20]);]]>
+</Text>
+</Rung>
+<Rung Number="123" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)[SUB(W00[20],W00[10],W00[21]) ,MOV(W00[21],W00[22]) ];]]>
+</Text>
+</Rung>
+<Rung Number="124" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)ABS(W00[22],W00[22]);]]>
+</Text>
+</Rung>
+<Rung Number="125" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)LES(W00[22],1000)OTE(M[3].11);]]>
+</Text>
+</Rung>
+<Rung Number="126" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)GEQ(W00[22],1000)GRT(W00[20],W00[10])OTE(M[3].13);]]>
+</Text>
+</Rung>
+<Rung Number="127" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)GRT(W00[22],1000)LES(W00[20],W00[10])OTE(M[3].12);]]>
+</Text>
+</Rung>
+<Rung Number="128" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)XIC(M[3].11)GRT(W00[22],285)GRT(W00[20],W00[10])OTE(M[3].14);]]>
+</Text>
+</Rung>
+<Rung Number="129" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)XIC(M[3].11)GRT(W00[22],270)LES(W00[20],W00[10])OTE(M[3].15);]]>
+</Text>
+</Rung>
+<Rung Number="130" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)XIO(TMR[12].TT)XIC(M[3].14)TON(TMR[11],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="131" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)[XIC(TMR[11].TT) ,XIC(M[3].13) ]OTE(M[8].0);]]>
+</Text>
+</Rung>
+<Rung Number="132" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)XIO(TMR[11].TT)TON(TMR[12],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="133" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)XIO(TMR[14].TT)XIC(M[3].15)TON(TMR[13],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="134" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)[XIC(TMR[13].TT) ,XIC(M[3].12) ]OTE(M[8].1);]]>
+</Text>
+</Rung>
+<Rung Number="135" Type="N">
+<Text>
+<![CDATA[XIC(M[3].10)XIC(TMR[10].DN)XIO(TMR[13].TT)TON(TMR[14],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="136" Type="N">
+<Comment>
+<![CDATA[Booth #2
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="137" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(R002.0)XIO(R002.11)XIO(M[30].1)XIO(M[30].8)XIO(M[41].8)[XIC(M[30].2) ,XIC(M[30].0) ]XIO(M[41].11)OTE(M[30].0);]]>
+</Text>
+</Rung>
+<Rung Number="138" Type="N">
+<Text>
+<![CDATA[XIO(M[30].8)[XIC(M[31].0) ,XIC(M[4].0) ]XIO(M[30].15)XIO(M[60].15)OTE(M[4].0);]]>
+</Text>
+</Rung>
+<Rung Number="139" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIO(M[30].13)XIC(M[30].3)XIC(R002.12)XIC(R002.9)OTE(M[4].1);]]>
+</Text>
+</Rung>
+<Rung Number="140" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)OTE(M[4].2);]]>
+</Text>
+</Rung>
+<Rung Number="141" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)TON(TMR[32],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="142" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)[XIC(R002.8) XIO(TMR[32].DN) ,XIC(M[30].7) ]OTE(M[4].3);]]>
+</Text>
+</Rung>
+<Rung Number="143" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[30].3)OTE(M[4].4);]]>
+</Text>
+</Rung>
+<Rung Number="144" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIO(M[30].3)XIO(M[30].7)XIC(TMR[32].DN)OTE(M[41].8);]]>
+</Text>
+</Rung>
+<Rung Number="145" Type="N">
+<Comment>
+<![CDATA[This section performs the Booth #2 time totaling.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="146" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(R002.3)XIO(M[32].2)TON(TMR[8],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="147" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[8].DN)ONS(ONS.11)ADD(1,K[15],K[15]);]]>
+</Text>
+</Rung>
+<Rung Number="148" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[8].DN)OTE(M[32].2);]]>
+</Text>
+</Rung>
+<Rung Number="149" Type="N">
+<Text>
+<![CDATA[GRT(K[15],0)DIV(K[15],10,B2_Runtime);]]>
+</Text>
+</Rung>
+<Rung Number="150" Type="N">
+<Comment>
+<![CDATA[End of time totaling.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="151" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(R002.3)[XIO(M[30].13) XIC(R002.5) ,XIC(M[30].13) XIC(R002.4) ]XIC(M[30].5)XIC(M[30].6)OTE(M[30].9);]]>
+</Text>
+</Rung>
+<Rung Number="152" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[41].15) ,XIC(M[41].0) ]XIO(M[41].1)OTE(M[41].0);]]>
+</Text>
+</Rung>
+<Rung Number="153" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(R002.3)[XIC(M[41].0) ,XIC(M[30].11) ]XIC(M[30].9)[XIC(TMR[26].DN) OTE(M[4].5) ,TON(TMR[26],?,?) ,XIO(TMR[26].DN) MOV(2300,R009) ];]]>
+</Text>
+</Rung>
+<Rung Number="154" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[30].9)XIC(M[41].9)MOV(14,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="155" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[30].9)XIC(M[41].10)[OTE(M[30].12) ,MOV(12,M[100]) ,XIO(R002.4) OTE(M[41].11) ];]]>
+</Text>
+</Rung>
+<Rung Number="156" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[30].9)XIC(M[41].13)MOV(12,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="157" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIO(M[30].4)[XIC(M[30].12) ,XIC(M[30].13) ]OTE(M[30].13);]]>
+</Text>
+</Rung>
+<Rung Number="158" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[31].3) ,XIC(M[31].4) XIO(M[31].5) ]OTE(M[31].4);]]>
+</Text>
+</Rung>
+<Rung Number="159" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)[XIC(M[31].2) ,XIC(M[31].5) XIO(M[31].4) ]OTE(M[31].5);]]>
+</Text>
+</Rung>
+<Rung Number="160" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[30].13)[TON(TMR[33],?,?) ,OTE(M[41].2) ];]]>
+</Text>
+</Rung>
+<Rung Number="161" Type="N">
+<Text>
+<![CDATA[MUL(B2_Purge_Time,60000,TMR[33].PRE)DIV(TMR[33].ACC,60000,B2_Purge_Time_ACC);]]>
+</Text>
+</Rung>
+<Rung Number="162" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIO(M[41].3)MOV(W00[45],W16[33]);]]>
+</Text>
+</Rung>
+<Rung Number="163" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[33].DN)[OTE(M[30].14) ,XIO(TMR[34].DN) OTE(M[41].3) ,XIO(TMR[34].DN) MOV(W00[43],W16[33]) ];]]>
+</Text>
+</Rung>
+<Rung Number="164" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].14)[TON(TMR[34],?,?) ,XIO(TMR[34].DN) [OTE(M[4].6) ,OTE(M[30].11) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="165" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[30].13)XIC(M[41].14)MOV(TMR[34].PRE,TMR[34].ACC);]]>
+</Text>
+</Rung>
+<Rung Number="166" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[34].DN)[TON(TMR[35],?,?) ,OTE(M[41].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="167" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(TMR[35].DN)[XIC(M[31].5) OTE(M[30].8) ,XIC(M[31].4) OTE(M[30].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="168" Type="N">
+<Text>
+<![CDATA[MUL(B2_Bake_Time,60000,TMR[34].PRE)DIV(TMR[34].ACC,60000,B2_Bake_Time_ACC);]]>
+</Text>
+</Rung>
+<Rung Number="169" Type="N">
+<Comment>
+<![CDATA[This section controls Booth 2 Auto Balance.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="170" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[4].3)XIC(M[30].3)XIC(M[30].7)[OTE(M[4].10) ,TON(TMR[15],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="171" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)MOV(4975,W00[23]);]]>
+</Text>
+</Rung>
+<Rung Number="172" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)[SUB(W00[23],W00[11],W00[24]) ,MOV(W00[24],W00[25]) ];]]>
+</Text>
+</Rung>
+<Rung Number="173" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)ABS(W00[25],W00[25]);]]>
+</Text>
+</Rung>
+<Rung Number="174" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)LES(W00[25],1000)OTE(M[4].11);]]>
+</Text>
+</Rung>
+<Rung Number="175" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)GEQ(W00[25],1000)GRT(W00[23],W00[11])OTE(M[4].13);]]>
+</Text>
+</Rung>
+<Rung Number="176" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)GRT(W00[25],1000)LES(W00[23],W00[11])OTE(M[4].12);]]>
+</Text>
+</Rung>
+<Rung Number="177" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)XIC(M[4].11)GRT(W00[25],285)GRT(W00[23],W00[11])OTE(M[4].14);]]>
+</Text>
+</Rung>
+<Rung Number="178" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)XIC(M[4].11)GRT(W00[25],270)LES(W00[23],W00[11])OTE(M[4].15);]]>
+</Text>
+</Rung>
+<Rung Number="179" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)XIO(TMR[17].TT)XIC(M[4].14)TON(TMR[16],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="180" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)[XIC(TMR[16].TT) ,XIC(M[4].13) ]OTE(M[9].0);]]>
+</Text>
+</Rung>
+<Rung Number="181" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)XIO(TMR[16].TT)TON(TMR[17],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="182" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)XIO(TMR[19].TT)XIC(M[4].15)TON(TMR[18],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="183" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)[XIC(TMR[18].TT) ,XIC(M[4].12) ]OTE(M[9].1);]]>
+</Text>
+</Rung>
+<Rung Number="184" Type="N">
+<Text>
+<![CDATA[XIC(M[4].10)XIC(TMR[15].DN)XIO(TMR[18].TT)TON(TMR[19],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="185" Type="N">
+<Comment>
+<![CDATA[Full Length Booth
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="186" Type="N">
+<Text>
+<![CDATA[[XIC(M[2].10) ,XIC(Jumper) ]XIO(R000.11)XIO(R002.11)XIO(M[42].11)OTE(M[61].6);]]>
+</Text>
+</Rung>
+<Rung Number="187" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(R000.0)XIC(R002.0)XIC(M[61].6)XIO(M[60].1)XIO(M[60].8)XIO(M[42].8)[XIC(M[60].2) ,XIC(M[60].0) ]OTE(M[60].0);]]>
+</Text>
+</Rung>
+<Rung Number="188" Type="N">
+<Text>
+<![CDATA[XIO(M[60].8)[XIC(M[61].0) ,XIC(M[5].0) ]XIO(M[60].15)XIO(M[0].15)XIO(M[30].15)[OTE(M[5].0) ,OTE(M[6].0) ];]]>
+</Text>
+</Rung>
+<Rung Number="189" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIO(M[60].13)XIC(M[0].3)XIC(M[30].3)XIC(R000.12)XIC(R002.12)XIC(M[0].7)XIC(M[30].7)[OTE(M[5].1) ,OTE(M[6].1) ];]]>
+</Text>
+</Rung>
+<Rung Number="190" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)[OTE(M[5].2) ,OTE(M[6].2) ];]]>
+</Text>
+</Rung>
+<Rung Number="191" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)TON(TMR[46],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="192" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)[XIC(R000.8) XIC(R002.8) XIO(TMR[46].DN) ,XIC(M[0].7) XIC(M[30].7) ][OTE(M[5].3) ,OTE(M[6].3) ];]]>
+</Text>
+</Rung>
+<Rung Number="193" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(M[0].3)XIC(M[30].3)[OTE(M[5].4) ,OTE(M[6].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="194" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIO(M[0].3)XIO(M[30].3)XIO(M[0].7)XIO(M[30].7)XIC(TMR[46].DN)OTE(M[42].8);]]>
+</Text>
+</Rung>
+<Rung Number="195" Type="N">
+<Comment>
+<![CDATA[This section performs the Full Booth time totaling.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="196" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(R000.3)XIC(R002.3)XIO(M[62].2)TON(TMR[9],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="197" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(TMR[9].DN)ONS(ONS.12)ADD(1,K[17],K[17]);]]>
+</Text>
+</Rung>
+<Rung Number="198" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(TMR[9].DN)OTE(M[62].2);]]>
+</Text>
+</Rung>
+<Rung Number="199" Type="N">
+<Text>
+<![CDATA[GRT(K[17],0)DIV(K[17],10,Both_Runtime);]]>
+</Text>
+</Rung>
+<Rung Number="200" Type="N">
+<Comment>
+<![CDATA[End of time totaling
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="201" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(R000.3)[XIO(M[60].13) XIC(R000.5) ,XIC(M[60].13) XIC(R000.4) ]XIC(M[0].5)XIC(M[0].6)OTE(M[5].7);]]>
+</Text>
+</Rung>
+<Rung Number="202" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(R002.3)[XIO(M[60].13) XIC(R002.5) ,XIC(M[60].13) XIC(R002.4) ]XIC(M[30].5)XIC(M[30].6)OTE(M[5].8);]]>
+</Text>
+</Rung>
+<Rung Number="203" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[5].7)XIC(M[5].8)OTE(M[60].9);]]>
+</Text>
+</Rung>
+<Rung Number="204" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)[XIC(M[60].10) ,XIC(M[42].0) ]XIO(M[42].1)OTE(M[42].0);]]>
+</Text>
+</Rung>
+<Rung Number="205" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(R000.3)XIC(R002.3)[XIC(M[42].0) ,XIC(M[60].11) ]XIC(M[60].9)[XIC(TMR[27].DN) OTE(M[5].5) ,XIC(TMR[27].DN) OTE(M[6].5) ,TON(TMR[27],?,?) ,XIO(TMR[27].DN) MOV(2300,R008) ,XIO(TMR[27].DN) MOV(2300,R009) ];]]>
+</Text>
+</Rung>
+<Rung Number="206" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(M[60].9)XIC(M[42].9)MOV(24,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="207" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(M[60].9)XIC(M[42].10)[OTE(M[60].12) ,MOV(22,M[100]) ,[XIO(R000.4) ,XIO(R002.4) ] OTE(M[42].11) ];]]>
+</Text>
+</Rung>
+<Rung Number="208" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(M[60].9)XIC(M[42].13)MOV(22,M[100]);]]>
+</Text>
+</Rung>
+<Rung Number="209" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIO(M[60].4)XIC(M[5].5)[XIC(M[60].12) ,XIC(M[60].13) ]OTE(M[60].13);]]>
+</Text>
+</Rung>
+<Rung Number="210" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)[XIC(M[61].3) ,XIC(M[61].4) XIO(M[61].5) ]OTE(M[61].4);]]>
+</Text>
+</Rung>
+<Rung Number="211" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)[XIC(M[61].2) ,XIC(M[61].5) XIO(M[61].4) ]OTE(M[61].5);]]>
+</Text>
+</Rung>
+<Rung Number="212" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(M[60].13)[TON(TMR[47],?,?) ,OTE(M[42].2) ];]]>
+</Text>
+</Rung>
+<Rung Number="213" Type="N">
+<Text>
+<![CDATA[MUL(Both_Purge_Time,60000,TMR[47].PRE)DIV(TMR[47].ACC,60000,Both_Purge_Time_ACC);]]>
+</Text>
+</Rung>
+<Rung Number="214" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIO(M[42].3)MOV(W00[75],W16[65]);]]>
+</Text>
+</Rung>
+<Rung Number="215" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(TMR[47].DN)[OTE(M[60].14) ,XIO(TMR[48].DN) OTE(M[42].3) ,XIO(TMR[48].DN) MOV(W00[73],W16[65]) ];]]>
+</Text>
+</Rung>
+<Rung Number="216" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].14)[TON(TMR[48],?,?) ,XIO(TMR[48].DN) [OTE(M[5].6) ,OTE(M[6].6) ,OTE(M[60].11) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="217" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(M[60].13)XIC(M[42].14)MOV(TMR[48].PRE,TMR[48].ACC);]]>
+</Text>
+</Rung>
+<Rung Number="218" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(TMR[48].DN)[TON(TMR[49],?,?) ,OTE(M[42].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="219" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(TMR[49].DN)[XIC(M[61].5) OTE(M[60].8) ,XIC(M[61].4) OTE(M[60].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="220" Type="N">
+<Text>
+<![CDATA[MUL(Both_Bake_Time,60000,TMR[48].PRE)DIV(TMR[48].ACC,60000,Both_Bake_Time_ACC);]]>
+</Text>
+</Rung>
+<Rung Number="221" Type="N">
+<Comment>
+<![CDATA[This section controls Full Booth Auto Balance
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="222" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[5].3)XIC(M[6].3)XIC(M[0].3)XIC(M[30].3)XIC(M[0].7)XIC(M[30].7)[OTE(M[5].10) ,TON(TMR[20],?,?) ];]]>
+</Text>
+</Rung>
+<Rung Number="223" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)MOV(4975,W00[26]);]]>
+</Text>
+</Rung>
+<Rung Number="224" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)[SUB(W00[26],W00[12],W00[27]) ,MOV(W00[27],W00[28]) ];]]>
+</Text>
+</Rung>
+<Rung Number="225" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)ABS(W00[28],W00[28]);]]>
+</Text>
+</Rung>
+<Rung Number="226" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)LES(W00[28],1000)OTE(M[5].11);]]>
+</Text>
+</Rung>
+<Rung Number="227" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)GEQ(W00[28],1000)GRT(W00[26],W00[12])OTE(M[5].13);]]>
+</Text>
+</Rung>
+<Rung Number="228" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)GRT(W00[28],1000)LES(W00[26],W00[12])OTE(M[5].12);]]>
+</Text>
+</Rung>
+<Rung Number="229" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)XIC(M[5].11)GRT(W00[28],85)GRT(W00[26],W00[12])OTE(M[5].14);]]>
+</Text>
+</Rung>
+<Rung Number="230" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)XIC(M[5].11)GRT(W00[28],70)LES(W00[26],W00[12])OTE(M[5].15);]]>
+</Text>
+</Rung>
+<Rung Number="231" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)XIO(TMR[22].TT)XIC(M[5].14)TON(TMR[21],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="232" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)[XIC(TMR[21].TT) ,XIC(M[5].13) ][OTE(M[9].2) ,OTE(M[9].4) ];]]>
+</Text>
+</Rung>
+<Rung Number="233" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)XIO(TMR[21].TT)TON(TMR[22],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="234" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)XIO(TMR[24].TT)XIC(M[5].15)TON(TMR[23],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="235" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)[XIC(TMR[23].TT) ,XIC(M[5].12) ][OTE(M[9].3) ,OTE(M[9].5) ];]]>
+</Text>
+</Rung>
+<Rung Number="236" Type="N">
+<Text>
+<![CDATA[XIC(M[5].10)XIC(TMR[20].DN)XIO(TMR[23].TT)TON(TMR[24],?,?);]]>
+</Text>
+</Rung>
+<Rung Number="237" Type="N">
+<Comment>
+<![CDATA[End of Full Length Booth
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="238" Type="N">
+<Comment>
+<![CDATA[Temp Control - Booth 1]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="239" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[3].5)XIC(TMR[25].DN)XIC(R000.10)GEQ(W16[1],W16[2])SUB(W16[1],W16[2],W00[31]);]]>
+</Text>
+</Rung>
+<Rung Number="240" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[3].5)XIC(TMR[25].DN)XIC(R000.10)LES(W16[1],W16[2])SUB(W16[2],W16[1],W00[31]);]]>
+</Text>
+</Rung>
+<Rung Number="241" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[3].5)XIC(TMR[25].DN)XIC(R000.10)LES(W00[31],500)OTE(M[40].12);]]>
+</Text>
+</Rung>
+<Rung Number="242" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[3].5)XIC(TMR[25].DN)XIC(R000.10)LES(W16[1],W16[2])XIO(M[40].12)MOV(2300,R008);]]>
+</Text>
+</Rung>
+<Rung Number="243" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[0].0)XIC(M[3].5)XIC(TMR[25].DN)XIC(R000.10)GRT(W16[1],W16[2])XIO(M[40].12)MOV(6000,R008);]]>
+</Text>
+</Rung>
+<Rung Number="244" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="245" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)COP(Clear[0],W16[0],100);]]>
+</Text>
+</Rung>
+<Rung Number="246" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)MOV(W00[15],W16[1]);]]>
+</Text>
+</Rung>
+<Rung Number="247" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)[MOV(6000,W16[6]) ,MOV(2300,W16[7]) ];]]>
+</Text>
+</Rung>
+<Rung Number="248" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)MOV(0,R008);]]>
+</Text>
+</Rung>
+<Rung Number="249" Type="N">
+<Text>
+<![CDATA[XIO(TMR_PID1.DN)TON(TMR_PID1,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="250" Type="N">
+<Text>
+<![CDATA[MOV(W16[1],PID1.SP);]]>
+</Text>
+</Rung>
+<Rung Number="251" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[40].12)XIC(M[2].0)XIC(TMR_PID1.DN)PID(PID1,W16[2],0,W16[4],0,0,0);]]>
+</Text>
+</Rung>
+<Rung Number="252" Type="N">
+<Text>
+<![CDATA[[XIO(F0.15) ,XIO(M[40].12) ,XIO(M[2].0) ]MOV(0,PID1.OUT)MOV(0,W16[4]);]]>
+</Text>
+</Rung>
+<Rung Number="253" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[2].0)MOV(R006,W16[2]);]]>
+</Text>
+</Rung>
+<Rung Number="254" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[40].12)XIC(M[2].0)MOV(W16[4],R008);]]>
+</Text>
+</Rung>
+<Rung Number="255" Type="N">
+<Comment>
+<![CDATA[Temp Control Booth 2
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="256" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[4].5)XIC(TMR[26].DN)XIC(R002.10)GEQ(W16[33],W16[34])SUB(W16[33],W16[34],W00[32]);]]>
+</Text>
+</Rung>
+<Rung Number="257" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[4].5)XIC(TMR[26].DN)XIC(R002.10)LES(W16[33],W16[34])SUB(W16[34],W16[33],W00[32]);]]>
+</Text>
+</Rung>
+<Rung Number="258" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[4].5)XIC(TMR[26].DN)XIC(R002.10)LES(W00[32],500)OTE(M[41].12);]]>
+</Text>
+</Rung>
+<Rung Number="259" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[4].5)XIC(TMR[26].DN)XIC(R002.10)LES(W16[33],W16[34])XIO(M[41].12)MOV(2300,R009);]]>
+</Text>
+</Rung>
+<Rung Number="260" Type="N">
+<Text>
+<![CDATA[XIC(M[2].0)XIC(M[30].0)XIC(M[4].5)XIC(TMR[26].DN)XIC(R002.10)GRT(W16[33],W16[34])XIO(M[41].12)MOV(5000,R009);]]>
+</Text>
+</Rung>
+<Rung Number="261" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)MOV(W00[45],W16[33]);]]>
+</Text>
+</Rung>
+<Rung Number="262" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)[MOV(6000,W16[38]) ,MOV(2300,W16[39]) ];]]>
+</Text>
+</Rung>
+<Rung Number="263" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)MOV(0,R009);]]>
+</Text>
+</Rung>
+<Rung Number="264" Type="N">
+<Text>
+<![CDATA[XIO(TMR_PID2.DN)TON(TMR_PID2,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="265" Type="N">
+<Text>
+<![CDATA[MOV(W16[33],PID2.SP);]]>
+</Text>
+</Rung>
+<Rung Number="266" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[41].12)XIC(M[2].0)XIC(TMR_PID2.DN)PID(PID2,W16[34],0,W16[36],0,0,0);]]>
+</Text>
+</Rung>
+<Rung Number="267" Type="N">
+<Text>
+<![CDATA[[XIO(F0.15) ,XIO(M[41].12) ,XIO(M[2].0) ]MOV(0,PID2.OUT)MOV(0,W16[36]);]]>
+</Text>
+</Rung>
+<Rung Number="268" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[2].0)MOV(R007,W16[34]);]]>
+</Text>
+</Rung>
+<Rung Number="269" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[41].12)XIC(M[2].0)MOV(W16[36],R009);]]>
+</Text>
+</Rung>
+<Rung Number="270" Type="N">
+<Comment>
+<![CDATA[Temp Control Full Booth
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="271" Type="N">
+<Text>
+<![CDATA[XIC(M[2].1)XIC(M[60].0)XIC(M[5].5)XIC(M[6].5)XIC(TMR[27].DN)XIC(R000.10)XIC(R002.10)OTE(M[61].7);]]>
+</Text>
+</Rung>
+<Rung Number="272" Type="N">
+<Text>
+<![CDATA[XIC(M[61].7)GEQ(W16[65],W16[66])SUB(W16[65],W16[66],W00[33]);]]>
+</Text>
+</Rung>
+<Rung Number="273" Type="N">
+<Text>
+<![CDATA[XIC(M[61].7)LES(W16[65],W16[66])SUB(W16[66],W16[65],W00[33]);]]>
+</Text>
+</Rung>
+<Rung Number="274" Type="N">
+<Text>
+<![CDATA[XIC(M[61].7)LES(W00[33],10000)OTE(M[42].12);]]>
+</Text>
+</Rung>
+<Rung Number="275" Type="N">
+<Text>
+<![CDATA[XIC(M[61].7)LES(W16[65],W16[66])XIO(M[42].12)[MOV(2300,R008) ,MOV(2300,R009) ];]]>
+</Text>
+</Rung>
+<Rung Number="276" Type="N">
+<Text>
+<![CDATA[XIC(M[61].7)GRT(W16[65],W16[66])XIO(M[42].12)[MOV(6000,R008) ,MOV(6000,R009) ];]]>
+</Text>
+</Rung>
+<Rung Number="277" Type="N">
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="278" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)MOV(W00[75],W16[65]);]]>
+</Text>
+</Rung>
+<Rung Number="279" Type="N">
+<Text>
+<![CDATA[XIC(F1.0)[MOV(6000,W16[70]) ,MOV(2300,W16[71]) ];]]>
+</Text>
+</Rung>
+<Rung Number="280" Type="N">
+<Text>
+<![CDATA[XIO(TMR_PID3.DN)TON(TMR_PID3,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="281" Type="N">
+<Text>
+<![CDATA[MOV(W16[65],PID3.SP);]]>
+</Text>
+</Rung>
+<Rung Number="282" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[42].12)XIC(TMR_PID3.DN)PID(PID3,W16[66],0,W16[68],0,0,0);]]>
+</Text>
+</Rung>
+<Rung Number="283" Type="N">
+<Text>
+<![CDATA[[XIO(F0.15) ,XIO(M[42].12) ]MOV(0,PID3.OUT)MOV(0,W16[68]);]]>
+</Text>
+</Rung>
+<Rung Number="284" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[2].1)[ADD(R006,R007,W00[34]) ,DIV(W00[34],2,W00[35]) ,MOV(W00[35],W16[66]) ];]]>
+</Text>
+</Rung>
+<Rung Number="285" Type="N">
+<Text>
+<![CDATA[XIC(F0.15)XIC(M[42].12)XIC(M[2].1)[MOV(W16[68],R008) ,MOV(W16[68],R009) ];]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</Program>
+</Programs>
+</Controller>
+</RSLogix5000Content>
