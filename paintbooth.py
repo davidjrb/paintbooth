@@ -6,22 +6,22 @@ import json, time
 PLC_IP = "192.168.1.1"  # CompactLogix PLC IP for Booth 1
 # Define the PLC tags to read for Booth 1 status
 TAGS = [
-    "M_0_0",        # System ON (Booth 1 System Control Enabled)
-    "M_40_0",       # Heat ENABLED (Booth 1 Heat Control Enabled)
-    "M_0_11",       # Bake Mode ACTIVE (Booth 1 Bake Cycle Active)
+    "M[0].0",       # System ON (Booth 1 System Control Enabled)
+    "M[40].0",      # Heat ENABLED (Booth 1 Heat Control Enabled)
+    "M[0].11",      # Bake Mode ACTIVE (Booth 1 Bake Cycle Active)
     "B1_Bake_Time_ACC",  # Bake Timer Accumulator (REAL, minutes)
-    "W16_2",        # Current Temperature (Booth 1, INT scaled x100)
-    "W16_1",        # Temperature Setpoint (Booth 1 PID, INT scaled x100)
-    "M_1_4",        # Mode: Restart Bake Cycle (AUTO)
-    "M_1_5",        # Mode: End Bake Cycle (MANUAL)
-    "M_40_4",       # Cooldown Active Status
-    "TMR_6_ACC",    # Cooldown Timer Accumulator (ms)
+    "W16[2]",       # Current Temperature (Booth 1, INT scaled x100)
+    "W16[1]",       # Temperature Setpoint (Booth 1 PID, INT scaled x100)
+    "M[1].4",       # Mode: Restart Bake Cycle (AUTO)
+    "M[1].5",       # Mode: End Bake Cycle (MANUAL)
+    "M[40].4",      # Cooldown Active Status
+    "TMR[6].ACC",   # Cooldown Timer Accumulator (ms)
     "B1_Bake_Time", # Bake Timer Preset (REAL, minutes)
-    "M_3_0",        # Lights Status
-    "M_1_0",        # Lights ON Command
-    "M_0_15",       # Lights OFF Command
-    "TMR_6_PRE",    # Cooldown Timer Preset (DINT, ms)
-    "W00_15",       # Spray Temperature Setpoint (INT, scaled x100)
+    "M[3].0",       # Lights Status
+    "M[1].0",       # Lights ON Command
+    "M[0].15",      # Lights OFF Command
+    "TMR[6].PRE",   # Cooldown Timer Preset (DINT, ms)
+    "W00[15]",      # Spray Temperature Setpoint (INT, scaled x100)
 ]
 POLL_SEC = 1.0  # polling interval in seconds
 
@@ -164,10 +164,10 @@ PAGE = """
       // Update values for each tag in the payload
       for (const [tag, val] of Object.entries(vals)) {
         // Skip mode bits here; handle mode display after loop
-        if (tag === "M_1_4" || tag === "M_1_5") continue;
+        if (tag === "M[1].4" || tag === "M[1].5") continue;
         // Determine the element ID corresponding to the tag
-        // With flat tags, the tag name IS the element ID (mostly)
-        let elementId = tag;
+        // Convert brackets/dots to underscores to match HTML IDs (e.g. M[0].0 -> M_0_0)
+        let elementId = tag.replace(/\[|\]|\./g, '_').replace('__', '_').replace(/_$/, '');
         const el = document.getElementById(elementId);
         if (!el) continue;
 
@@ -178,14 +178,14 @@ PAGE = """
           let s = Math.round((totalMin - m) * 60);
           if (s === 60) { m++; s = 0; }
           el.textContent = m + ":" + s.toString().padStart(2, '0') + " min";
-        } else if (tag === "TMR_6_ACC") {
+        } else if (tag === "TMR[6].ACC") {
           // Cooldown timer ACC (ms) → MM:SS min
           let totalSec = parseInt(val, 10) / 1000;
           let m = Math.floor(totalSec / 60);
           let s = Math.floor(totalSec % 60);
           el.textContent = m + ":" + s.toString().padStart(2, '0') + " min";
           continue;
-        } else if (tag === "W16_1" || tag === "W16_2") {
+        } else if (tag === "W16[1]" || tag === "W16[2]") {
           // Temperature setpoint/current: divide by 100 to get one decimal + °F
           el.textContent = (parseInt(val) / 100.0).toFixed(1) + " °F";
         } else {
@@ -202,11 +202,11 @@ PAGE = """
 
       // Determine and display mode (Auto/Manual) based on mode bits
       let isAuto = false;
-      if (vals.hasOwnProperty("M_1_4") && vals.hasOwnProperty("M_1_5")) {
+      if (vals.hasOwnProperty("M[1].4") && vals.hasOwnProperty("M[1].5")) {
         const modeEl = document.getElementById('mode');
         if (modeEl) {
-          const autoMode = vals["M_1_4"];
-          const manualMode = vals["M_1_5"];
+          const autoMode = vals["M[1].4"];
+          const manualMode = vals["M[1].5"];
           if (autoMode === 1) {
             modeEl.textContent = "AUTO";
             isAuto = true;
@@ -222,34 +222,34 @@ PAGE = """
       
       // Update Status Indicators
       // System ON: Green if ON (1)
-      updateStatusIndicator('s_M_0_0', vals['M_0_0'] === 1);
+      updateStatusIndicator('s_M_0_0', vals['M[0].0'] === 1);
       
       // Heat ENABLED: Green if ON (1)
-      updateStatusIndicator('s_M_40_0', vals['M_40_0'] === 1);
+      updateStatusIndicator('s_M_40_0', vals['M[40].0'] === 1);
       
       // Bake mode ACTIVE: Green if ON (1)
-      updateStatusIndicator('s_M_0_11', vals['M_0_11'] === 1);
+      updateStatusIndicator('s_M_0_11', vals['M[0].11'] === 1);
       
       // Bake Timer: Green if > 0
       updateStatusIndicator('s_B1_Bake_Time_ACC', parseFloat(vals['B1_Bake_Time_ACC']) > 0);
       
       // Current Temperature: Green if >= Setpoint
       // Note: Values are scaled integers (e.g. 12000 = 120.00). Comparison works directly.
-      let curTemp = parseInt(vals['W16_2'] || 0);
-      let spTemp = parseInt(vals['W16_1'] || 0);
+      let curTemp = parseInt(vals['W16[2]'] || 0);
+      let spTemp = parseInt(vals['W16[1]'] || 0);
       updateStatusIndicator('s_W16_2', curTemp >= spTemp);
       
       // Temperature Setpoint: Green when Bake mode ACTIVE ON
-      updateStatusIndicator('s_W16_1', vals['M_0_11'] === 1);
+      updateStatusIndicator('s_W16_1', vals['M[0].11'] === 1);
       
       // Mode: Green when AUTO
       updateStatusIndicator('s_mode', isAuto);
       
       // Cooldown ACTIVE: Green when ON (1)
-      updateStatusIndicator('s_M_40_4', vals['M_40_4'] === 1);
+      updateStatusIndicator('s_M_40_4', vals['M[40].4'] === 1);
       
       // Cooldown Timer: Green when > 0
-      updateStatusIndicator('s_TMR_6_ACC', parseInt(vals['TMR_6_ACC'] || 0) > 0);
+      updateStatusIndicator('s_TMR_6_ACC', parseInt(vals['TMR[6].ACC'] || 0) > 0);
 
       // Update status text (timestamp or error)
       if (data.error) {
@@ -448,15 +448,15 @@ CONTROLS_PAGE = """
     <!-- 2. Temp Setpoint -->
     <div class="card">
       <div class="card-title">Temp Setpoint</div>
-      <div class="value-display" onclick="openKeypad('W00_15', 'Setpoint (°F)')" id="disp_W00_15">--</div>
+      <div class="value-display" onclick="openKeypad('W00[15]', 'Setpoint (°F)')" id="disp_W00_15">--</div>
     </div>
     
     <!-- 3. Lights -->
     <div class="card">
       <div class="card-title">Lights</div>
       <div class="btn-group">
-        <button class="toggle-btn" id="btn_lights_on" onclick="sendCmd('M_1_0', 1)">ON</button>
-        <button class="toggle-btn" id="btn_lights_off" onclick="sendCmd('M_0_15', 1)">OFF</button>
+        <button class="toggle-btn" id="btn_lights_on" onclick="sendCmd('M[1].0', 1)">ON</button>
+        <button class="toggle-btn" id="btn_lights_off" onclick="sendCmd('M[0].15', 1)">OFF</button>
       </div>
       <div style="margin-top: 1vh; font-size: 1.5vh; color: #777;">Status: <span id="status_lights">--</span></div>
     </div>
@@ -466,11 +466,11 @@ CONTROLS_PAGE = """
       <div class="card-title">Mode</div>
       <div class="btn-group">
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <button class="toggle-btn" id="btn_mode_auto" onclick="sendCmd('M_1_4', 1)">AUTO</button>
+          <button class="toggle-btn" id="btn_mode_auto" onclick="sendCmd('M[1].4', 1)">AUTO</button>
           <span style="font-size:1.5vh; color:#777; margin-top:0.5vh;">Restart Bake</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <button class="toggle-btn" id="btn_mode_manual" onclick="sendCmd('M_1_5', 1)">MANUAL</button>
+          <button class="toggle-btn" id="btn_mode_manual" onclick="sendCmd('M[1].5', 1)">MANUAL</button>
           <span style="font-size:1.5vh; color:#777; margin-top:0.5vh;">End Bake</span>
         </div>
       </div>
@@ -479,7 +479,7 @@ CONTROLS_PAGE = """
     <!-- 5. Cooldown Timer -->
     <div class="card">
       <div class="card-title">Cooldown Timer</div>
-      <div class="value-display" onclick="openKeypad('TMR_6_PRE', 'Cooldown (min)')" id="disp_TMR_6_PRE">--</div>
+      <div class="value-display" onclick="openKeypad('TMR[6].PRE', 'Cooldown (min)')" id="disp_TMR_6_PRE">--</div>
     </div>
     
     <!-- 6. Spare -->
@@ -534,26 +534,26 @@ CONTROLS_PAGE = """
         document.getElementById('disp_B1_Bake_Time').textContent = parseFloat(vals.B1_Bake_Time).toFixed(1) + " min";
       }
       
-      // Temp Setpoint (W00_15) - scaled x100
-      if (vals.W00_15 !== undefined) {
-        document.getElementById('disp_W00_15').textContent = (vals.W00_15 / 100).toFixed(1) + " °F";
+      // Temp Setpoint (W00[15]) - scaled x100
+      if (vals['W00[15]'] !== undefined) {
+        document.getElementById('disp_W00_15').textContent = (vals['W00[15]'] / 100).toFixed(1) + " °F";
       }
       
-      // Cooldown (TMR_6_PRE) - ms to min
-      if (vals.TMR_6_PRE !== undefined) {
-        let min = (vals.TMR_6_PRE / 60000).toFixed(1);
+      // Cooldown (TMR[6].PRE) - ms to min
+      if (vals['TMR[6].PRE'] !== undefined) {
+        let min = (vals['TMR[6].PRE'] / 60000).toFixed(1);
         document.getElementById('disp_TMR_6_PRE').textContent = min + " min";
       }
       
-      // Lights (M_3_0 status)
-      const lightsOn = vals.M_3_0 === 1;
+      // Lights (M[3].0 status)
+      const lightsOn = vals['M[3].0'] === 1;
       document.getElementById('btn_lights_on').className = 'toggle-btn ' + (lightsOn ? 'active' : '');
       document.getElementById('btn_lights_off').className = 'toggle-btn ' + (!lightsOn ? 'active-red' : '');
       document.getElementById('status_lights').textContent = lightsOn ? "ON" : "OFF";
       
-      // Mode (M_1_4 Auto, M_1_5 Manual)
-      const isAuto = vals.M_1_4 === 1;
-      const isManual = vals.M_1_5 === 1;
+      // Mode (M[1].4 Auto, M[1].5 Manual)
+      const isAuto = vals['M[1].4'] === 1;
+      const isManual = vals['M[1].5'] === 1;
       document.getElementById('btn_mode_auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
       document.getElementById('btn_mode_manual').className = 'toggle-btn ' + (isManual ? 'active' : '');
     }
@@ -589,8 +589,8 @@ CONTROLS_PAGE = """
       let val = parseFloat(currentValStr);
       
       // Conversions before sending
-      if (currentTag === 'W16_1' || currentTag === 'W00_15') val = val * 100; // °F -> Scaled
-      if (currentTag === 'TMR_6_PRE') val = val * 60000; // min -> ms
+      if (currentTag === 'W16[1]' || currentTag === 'W00[15]') val = val * 100; // °F -> Scaled
+      if (currentTag === 'TMR[6].PRE') val = val * 60000; // min -> ms
       
       sendCmd(currentTag, val);
       kpClose();
@@ -627,8 +627,10 @@ def write_tag():
             
         with PLC() as comm:
             comm.IPAddress = PLC_IP
-            # pylogix handles type conversion automatically based on the tag type.
-            # B1_Bake_Time is REAL, W16_1 is INT, TMR_6_PRE is DINT.
+            # Determine type? pylogix usually handles it, but for REALs we might need to be careful.
+            # B1_Bake_Time is REAL. W16_1 is INT. TMR_6_PRE is DINT.
+            # pylogix Write should handle it if we pass the right python type.
+            # value from JSON is likely float or int.
             
             res = comm.Write(tag, value)
             if res.Status != "Success":
@@ -640,7 +642,7 @@ def write_tag():
 
 @app.route("/api/read")
 def api_read():
-    # Single read endpoint for diagnostics
+    # One-shot read endpoint (for debugging, not strictly needed for SSE functionality)
     data = read_tags_once()
     return jsonify(data)
 
