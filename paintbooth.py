@@ -45,7 +45,7 @@ PAGE = """
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-size: 4vh; /* Increased from 2vh */
+      font-size: 3.5vh; /* Reduced from 4vh to fit content */
       display: flex;
       flex-direction: column;
       touch-action: manipulation; /* Prevent double-tap zoom */
@@ -60,7 +60,7 @@ PAGE = """
       align-items: center; 
       gap: 12px; 
       flex-shrink: 0;
-      height: 10vh; /* Increased from 8vh */
+      height: 8vh; /* Reduced from 10vh */
     }
     .dot { width: 2vh; height: 2vh; border-radius: 50%; background: #3fdc5a; box-shadow: 0 0 8px #3fdc5a; }
     h1 { font-size: 5vh; margin: 0; letter-spacing: 0.3px; } /* Increased from 2.5vh */
@@ -89,8 +89,8 @@ PAGE = """
     }
     th { background: #131826; font-weight: 600; color: #9fb0ff; border-bottom-color: #20263a; }
     tr:last-child td { border-bottom: none; }
-    .tag { color: #b7c3ff; font-size: 2em; } /* Increased from 1.5em */
-    .val { color: #ffd28a; font-weight: bold; font-size: 2em; } /* Increased from 1.5em */
+    .tag { color: #b7c3ff; font-size: 5vh; } /* Use vh for consistent fit */
+    .val { color: #ffd28a; font-weight: bold; font-size: 5vh; }
     .small { color: #7b8aa8; font-size: 2vh; } /* Increased from 1.5vh */
 
     .status-cell { width: 8vw; text-align: center; padding: 0; }
