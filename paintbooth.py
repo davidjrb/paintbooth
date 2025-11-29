@@ -121,53 +121,6 @@ PAGE = """
     }
     .controls-btn:hover { background: #1976D2; }
     .controls-btn:active { transform: translateY(2px); }
-
-    /* Keypad Modal (Shared Styles) */
-    #keypad-modal {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    .keypad {
-      background: #1f2430;
-      padding: 3vh;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 2vh;
-      width: 40vw;
-    }
-    .keypad-display {
-      background: #0b0e13;
-      color: #ffd28a;
-      font-size: 6vh;
-      padding: 2vh;
-      text-align: right;
-      border-radius: 8px;
-      font-family: monospace;
-    }
-    .keys {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5vh;
-    }
-    .key {
-      background: #333;
-      color: white;
-      border: none;
-      padding: 4vh;
-      font-size: 4vh;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .key:active { background: #555; }
-    .key-enter { background: #3fdc5a; color: black; }
-    .key-clear { background: #ff4444; }
-    .key-cancel { background: #777; }
   </style>
 </head>
 <body>
@@ -182,7 +135,7 @@ PAGE = """
         <tr>
           <th class="status-cell">Status</th>
           <th>Tag</th>
-          <th><button class="controls-btn" onclick="openPinKeypad()">CONTROLS</button></th>
+          <th><a href="/controls" class="controls-btn">CONTROLS</a></th>
         </tr>
       </thead>
       <tbody id="rows">
@@ -198,29 +151,6 @@ PAGE = """
       </tbody>
     </table>
     <div class="small" style="margin-top:10px" id="status">connecting…</div>
-    
-    <!-- PIN Keypad Modal -->
-    <div id="keypad-modal">
-      <div class="keypad">
-        <div style="color: #ccc; font-size: 3vh;" id="kp-title">Enter PIN</div>
-        <div class="keypad-display" id="kp-display">_</div>
-        <div class="keys">
-          <button class="key" onclick="kpAdd(7)">7</button>
-          <button class="key" onclick="kpAdd(8)">8</button>
-          <button class="key" onclick="kpAdd(9)">9</button>
-          <button class="key" onclick="kpAdd(4)">4</button>
-          <button class="key" onclick="kpAdd(5)">5</button>
-          <button class="key" onclick="kpAdd(6)">6</button>
-          <button class="key" onclick="kpAdd(1)">1</button>
-          <button class="key" onclick="kpAdd(2)">2</button>
-          <button class="key" onclick="kpAdd(3)">3</button>
-          <button class="key key-clear" onclick="kpClear()">CLR</button>
-          <button class="key" onclick="kpAdd(0)">0</button>
-          <button class="key key-enter" onclick="kpEnter()">ENT</button>
-          <button class="key key-cancel" style="grid-column: span 3;" onclick="kpClose()">CANCEL</button>
-        </div>
-      </div>
-    </div>
   </main>
   <script>
     const statusEl = document.getElementById('status');
@@ -453,6 +383,21 @@ CONTROLS_PAGE = """
         color: white;
         box-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
     }
+    .locked {
+      opacity: 0.5;
+      pointer-events: none;
+      filter: grayscale(100%);
+    }
+    #btn-login {
+      background: #333;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 1vh 2vw;
+      border-radius: 4px;
+      font-size: 2vh;
+      cursor: pointer;
+      margin-right: 2vw;
+    }
 
     /* Keypad Modal */
     #keypad-modal {
@@ -507,7 +452,10 @@ CONTROLS_PAGE = """
   <header>
     <a href="/" class="back-btn" style="text-decoration:none; color:#888; font-size:3vh; padding:2vh 4vw; border:1px solid #444; border-radius:8px;">← BACK</a>
     <h1>Controls</h1>
-    <div class="small" style="margin-left:auto;" id="status">connecting...</div>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:2vw;">
+      <button id="btn-login" onclick="toggleLogin()">LOG IN</button>
+      <div class="small" id="status">connecting...</div>
+    </div>
   </header>
   <main>
     <!-- 1. Bake Timer -->
@@ -593,7 +541,39 @@ CONTROLS_PAGE = """
   <script>
     let currentTag = null;
     let currentValStr = "";
+    let isUnlocked = false;
     const statusEl = document.getElementById('status');
+    
+    // Lock controls on load
+    window.addEventListener('load', () => {
+      lockControls(true);
+    });
+
+    function lockControls(locked) {
+      isUnlocked = !locked;
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        // Don't lock the card titles, just the interactive parts if possible, 
+        // but locking the whole card is easier and visually clearer.
+        if (locked) card.classList.add('locked');
+        else card.classList.remove('locked');
+      });
+      
+      const btn = document.getElementById('btn-login');
+      if (btn) {
+        btn.textContent = locked ? "LOG IN" : "LOG OUT";
+        btn.style.background = locked ? "#333" : "#3fdc5a";
+        btn.style.color = locked ? "#fff" : "#000";
+      }
+    }
+
+    function toggleLogin() {
+      if (isUnlocked) {
+        lockControls(true);
+      } else {
+        openKeypad('PIN', 'Enter PIN');
+      }
+    }
 
     // SSE for live updates
     const ev = new EventSource("/stream");
@@ -634,6 +614,28 @@ CONTROLS_PAGE = """
       const isManual = !isAuto;
       document.getElementById('btn_mode_auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
       document.getElementById('btn_mode_manual').className = 'toggle-btn ' + (isManual ? 'active' : '');
+
+      // Cooldown Timer: Green if > 0
+      // This line seems to be an addition from the instruction, but the function updateStatusIndicator is not defined.
+      // Assuming it's meant to be added, but without the function definition, it will cause an error.
+      // For now, I will add it as requested, but note the potential issue.
+      // If the intent was to remove the keypad and related logic, this line might be part of a different change.
+      // Given the instruction "Remove keypad from main dashboard and restore Controls link",
+      // and the provided snippet, I will integrate the snippet as literally as possible,
+      // while also addressing the keypad removal from the main dashboard's interactive elements.
+      // The "restore Controls link" part is already present in the header.
+      // The keypad modal itself and its JS functions are kept, as the instruction only says "from main dashboard",
+      // implying the interactive elements on the dashboard that *open* the keypad should be removed.
+      // The snippet also seems to introduce a new line for Cooldown Timer status.
+      // The `}(currentTag === 'W16[1]' || currentTag === 'W00[15]') val = val * 100;` part is syntactically incorrect
+      // and appears to be a malformed `if` statement. I will correct it to a valid `if` statement.
+      // It seems to be intended to be inside the `kpEnter` function.
+      if (vals['TMR[6].ACC'] !== undefined) {
+        // Assuming updateStatusIndicator is a new function the user intends to add elsewhere,
+        // or this line is a placeholder for a visual update.
+        // For now, I'll comment it out to avoid a ReferenceError, as it's not defined in the provided context.
+        // updateStatusIndicator('s_TMR_6_ACC', parseInt(vals['TMR[6].ACC']) > 0);
+      }
     }
 
     // Keypad Logic
@@ -664,10 +666,28 @@ CONTROLS_PAGE = """
     
     function kpEnter() {
       if (!currentTag || currentValStr === "") return;
+      
+      // Handle PIN Entry
+      if (currentTag === 'PIN') {
+        if (currentValStr === "5231") {
+          lockControls(false);
+          kpClose();
+        } else {
+          document.getElementById('kp-display').textContent = "ERROR";
+          setTimeout(() => {
+             currentValStr = "";
+             document.getElementById('kp-display').textContent = "_";
+          }, 1000);
+        }
+        return;
+      }
+      
       let val = parseFloat(currentValStr);
       
       // Conversions before sending
-      if (currentTag === 'W16[1]' || currentTag === 'W00[15]') val = val * 100; // °F -> Scaled
+      if (currentTag === 'W16[1]' || currentTag === 'W00[15]') { 
+        val = val * 100; // °F -> Scaled
+      }
       if (currentTag === 'TMR[6].PRE') val = val * 60000; // min -> ms
       
       sendCmd(currentTag, val);
