@@ -455,8 +455,8 @@ CONTROLS_PAGE = """
     <div class="card">
       <div class="card-title">Lights</div>
       <div class="btn-group">
-        <button class="toggle-btn" id="btn_lights_on" onclick="sendCmd('M[1].0', 1)">ON</button>
-        <button class="toggle-btn" id="btn_lights_off" onclick="sendCmd('M[0].15', 1)">OFF</button>
+        <button class="toggle-btn" id="btn_lights_on" onclick="sendCmd('M[1].0', 1, true)">ON</button>
+        <button class="toggle-btn" id="btn_lights_off" onclick="sendCmd('M[0].15', 1, true)">OFF</button>
       </div>
       <div style="margin-top: 1vh; font-size: 1.5vh; color: #777;">Status: <span id="status_lights">--</span></div>
     </div>
@@ -466,11 +466,11 @@ CONTROLS_PAGE = """
       <div class="card-title">Mode</div>
       <div class="btn-group">
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <button class="toggle-btn" id="btn_mode_auto" onclick="sendCmd('M[1].4', 1)">AUTO</button>
+          <button class="toggle-btn" id="btn_mode_auto" onclick="sendCmd('M[1].4', 1, true)">AUTO</button>
           <span style="font-size:1.5vh; color:#777; margin-top:0.5vh;">Restart Bake</span>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <button class="toggle-btn" id="btn_mode_manual" onclick="sendCmd('M[1].5', 1)">MANUAL</button>
+          <button class="toggle-btn" id="btn_mode_manual" onclick="sendCmd('M[1].5', 1, true)">MANUAL</button>
           <span style="font-size:1.5vh; color:#777; margin-top:0.5vh;">End Bake</span>
         </div>
       </div>
@@ -596,11 +596,11 @@ CONTROLS_PAGE = """
       kpClose();
     }
     
-    function sendCmd(tag, val) {
+    function sendCmd(tag, val, isMomentary=false) {
       fetch('/write', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({tag: tag, value: val})
+        body: JSON.stringify({tag: tag, value: val, momentary: isMomentary})
       }).catch(err => console.error("Write failed", err));
     }
   </script>
@@ -635,6 +635,11 @@ def write_tag():
             res = comm.Write(tag, value)
             if res.Status != "Success":
                  return jsonify({"error": f"PLC Write Failed: {res.Status}"}), 500
+            
+            # Handle momentary buttons (write 1, wait, write 0)
+            if data.get("momentary"):
+                time.sleep(0.5)
+                comm.Write(tag, 0)
                  
         return jsonify({"status": "ok", "tag": tag, "value": value})
     except Exception as e:
