@@ -48,7 +48,11 @@ PAGE = """
       font-size: 4vh; /* Increased from 2vh */
       display: flex;
       flex-direction: column;
+      touch-action: manipulation; /* Prevent double-tap zoom */
+      user-select: none; /* Prevent text selection */
+      cursor: default;
     }
+    button, a, .value-display { cursor: pointer; }
     header { 
       padding: 1vh 2vw; 
       border-bottom: 1px solid #1f2430; 
@@ -85,8 +89,8 @@ PAGE = """
     }
     th { background: #131826; font-weight: 600; color: #9fb0ff; border-bottom-color: #20263a; }
     tr:last-child td { border-bottom: none; }
-    .tag { color: #b7c3ff; font-size: 1.5em; } /* Increased to match val */
-    .val { color: #ffd28a; font-weight: bold; font-size: 1.5em; } /* Increased from 1.1em */
+    .tag { color: #b7c3ff; font-size: 2em; } /* Increased from 1.5em */
+    .val { color: #ffd28a; font-weight: bold; font-size: 2em; } /* Increased from 1.5em */
     .small { color: #7b8aa8; font-size: 2vh; } /* Increased from 1.5vh */
 
     .status-cell { width: 8vw; text-align: center; padding: 0; }
@@ -104,9 +108,9 @@ PAGE = """
       background: #2196F3;
       color: white;
       text-decoration: none;
-      padding: 3vh 3vw; /* Increased vertical padding to double height */
+      padding: 4vh 5vw; /* Increased from 3vh 3vw */
       border-radius: 8px;
-      font-size: 1.2em; /* Large and readable */
+      font-size: 3vh; /* Increased from 1.2em */
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -347,7 +351,7 @@ CONTROLS_PAGE = """
       color: #ffd28a;
       font-weight: bold;
       cursor: pointer;
-      padding: 1vh 2vw;
+      padding: 3vh; /* Increased from 1vh 2vw */
       border: 1px solid #333;
       border-radius: 8px;
       background: #1a2030;
@@ -358,8 +362,9 @@ CONTROLS_PAGE = """
     
     .btn-group { display: flex; gap: 1vw; }
     .toggle-btn {
-      padding: 2vh 3vw;
-      font-size: 2.5vh;
+      padding: 3vh 4vw; /* Increased from 2vh 3vw */
+      font-size: 3.5vh; /* Increased from 2.5vh */
+      min-width: 12vw;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -401,7 +406,7 @@ CONTROLS_PAGE = """
     .keypad-display {
       background: #0b0e13;
       color: #ffd28a;
-      font-size: 5vh;
+      font-size: 6vh; /* Increased from 5vh */
       padding: 2vh;
       text-align: right;
       border-radius: 8px;
@@ -416,8 +421,8 @@ CONTROLS_PAGE = """
       background: #333;
       color: white;
       border: none;
-      padding: 2vh;
-      font-size: 3vh;
+      padding: 4vh; /* Increased from 2vh */
+      font-size: 4vh; /* Increased from 3vh */
       border-radius: 8px;
       cursor: pointer;
     }
@@ -430,7 +435,7 @@ CONTROLS_PAGE = """
 </head>
 <body>
   <header>
-    <a href="/" class="back-btn">← BACK</a>
+    <a href="/" class="back-btn" style="text-decoration:none; color:#888; font-size:3vh; padding:2vh 4vw; border:1px solid #444; border-radius:8px;">← BACK</a>
     <h1>Controls</h1>
     <div class="small" style="margin-left:auto;" id="status">connecting...</div>
   </header>
