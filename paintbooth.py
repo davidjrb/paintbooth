@@ -483,10 +483,17 @@ CONTROLS_PAGE = """
       <div class="value-display" onclick="openKeypad('TMR[6].PRE', 'Cooldown (min)')" id="disp_TMR_6_PRE">--</div>
     </div>
     
-    <!-- 6. Spare -->
-    <div class="card" style="opacity: 0.5;">
-      <div class="card-title">Spare</div>
-      <div style="font-size: 3vh; color: #555;">RESERVED</div>
+    <!-- 6. Bake Cycle Controls -->
+    <div class="card">
+      <div class="card-title">Bake Cycle</div>
+      <div class="btn-group">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <button class="toggle-btn" id="btn_bake_start" onclick="sendCmd('M[40].10', 1, true)">START</button>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <button class="toggle-btn" id="btn_bake_cancel" onclick="sendCmd('M[40].14', 1, true)">CANCEL</button>
+        </div>
+      </div>
     </div>
   </main>
 
