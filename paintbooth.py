@@ -48,10 +48,11 @@ PAGE = """
       font-size: 3.5vh; /* Reduced from 4vh to fit content */
       display: flex;
       flex-direction: column;
-      touch-action: manipulation; /* Prevent double-tap zoom */
+      touch-action: none; /* Disable browser gestures */
       user-select: none; /* Prevent text selection */
       cursor: default;
     }
+    * { -webkit-tap-highlight-color: transparent; } /* Remove tap highlight */
     button, a, .value-display { cursor: pointer; }
     header { 
       padding: 1vh 2vw; 
@@ -116,7 +117,11 @@ PAGE = """
       letter-spacing: 2px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
       transition: background 0.2s, transform 0.1s;
-      display: inline-block;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
       line-height: 1;
     }
     .controls-btn:hover { background: #1976D2; }
@@ -135,7 +140,7 @@ PAGE = """
         <tr>
           <th class="status-cell">Status</th>
           <th>Tag</th>
-          <th><a href="/controls" class="controls-btn">CONTROLS</a></th>
+          <th style="padding:0;"><a href="/controls" class="controls-btn" style="border-radius:0;">CONTROLS</a></th>
         </tr>
       </thead>
       <tbody id="rows">
@@ -276,6 +281,10 @@ PAGE = """
       };
     }
     connect();
+    
+    // Hardening: Disable context menu and dragging
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('dragstart', event => event.preventDefault());
   </script>
 </body>
 </html>
@@ -300,7 +309,11 @@ CONTROLS_PAGE = """
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      touch-action: none; /* Disable browser gestures */
+      user-select: none; /* Prevent text selection */
+      cursor: default;
     }
+    * { -webkit-tap-highlight-color: transparent; } /* Remove tap highlight */
     header { 
       padding: 1vh 2vw; 
       border-bottom: 1px solid #1f2430; 
@@ -694,6 +707,14 @@ CONTROLS_PAGE = """
       sendCmd(currentTag, val);
       kpClose();
     }
+    
+      sendCmd(currentTag, val);
+      kpClose();
+    }
+    
+    // Hardening: Disable context menu and dragging
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('dragstart', event => event.preventDefault());
     
     function sendCmd(tag, val, isMomentary=false) {
       fetch('/write', {
