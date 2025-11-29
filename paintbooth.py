@@ -314,10 +314,11 @@ CONTROLS_PAGE = """
       background: #333;
       color: white;
       text-decoration: none;
-      padding: 1vh 2vw;
-      border-radius: 4px;
-      font-size: 2vh;
+      padding: 4vh 5vw; /* Increased to match controls-btn */
+      border-radius: 8px;
+      font-size: 3vh; /* Increased to match controls-btn */
       margin-right: 2vw;
+      border: 1px solid #444;
     }
     h1 { font-size: 4vh; margin: 0; }
     main { 
@@ -392,9 +393,9 @@ CONTROLS_PAGE = """
       background: #333;
       color: #fff;
       border: 1px solid #555;
-      padding: 1vh 2vw;
-      border-radius: 4px;
-      font-size: 2vh;
+      padding: 4vh 5vw; /* Increased to match controls-btn */
+      border-radius: 8px;
+      font-size: 3vh; /* Increased to match controls-btn */
       cursor: pointer;
       margin-right: 2vw;
     }
@@ -450,7 +451,7 @@ CONTROLS_PAGE = """
 </head>
 <body>
   <header>
-    <a href="/" class="back-btn" style="text-decoration:none; color:#888; font-size:3vh; padding:2vh 4vw; border:1px solid #444; border-radius:8px;">← BACK</a>
+    <a href="/" class="back-btn">← BACK</a>
     <h1>Controls</h1>
     <div style="margin-left:auto; display:flex; align-items:center; gap:2vw;">
       <button id="btn-login" onclick="toggleLogin()">LOG IN</button>
