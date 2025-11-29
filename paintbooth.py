@@ -121,6 +121,53 @@ PAGE = """
     }
     .controls-btn:hover { background: #1976D2; }
     .controls-btn:active { transform: translateY(2px); }
+
+    /* Keypad Modal (Shared Styles) */
+    #keypad-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .keypad {
+      background: #1f2430;
+      padding: 3vh;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
+      width: 40vw;
+    }
+    .keypad-display {
+      background: #0b0e13;
+      color: #ffd28a;
+      font-size: 6vh;
+      padding: 2vh;
+      text-align: right;
+      border-radius: 8px;
+      font-family: monospace;
+    }
+    .keys {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5vh;
+    }
+    .key {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 4vh;
+      font-size: 4vh;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .key:active { background: #555; }
+    .key-enter { background: #3fdc5a; color: black; }
+    .key-clear { background: #ff4444; }
+    .key-cancel { background: #777; }
   </style>
 </head>
 <body>
@@ -135,7 +182,7 @@ PAGE = """
         <tr>
           <th class="status-cell">Status</th>
           <th>Tag</th>
-          <th><a href="/controls" class="controls-btn">CONTROLS</a></th>
+          <th><button class="controls-btn" onclick="openPinKeypad()">CONTROLS</button></th>
         </tr>
       </thead>
       <tbody id="rows">
@@ -151,6 +198,29 @@ PAGE = """
       </tbody>
     </table>
     <div class="small" style="margin-top:10px" id="status">connecting…</div>
+    
+    <!-- PIN Keypad Modal -->
+    <div id="keypad-modal">
+      <div class="keypad">
+        <div style="color: #ccc; font-size: 3vh;" id="kp-title">Enter PIN</div>
+        <div class="keypad-display" id="kp-display">_</div>
+        <div class="keys">
+          <button class="key" onclick="kpAdd(7)">7</button>
+          <button class="key" onclick="kpAdd(8)">8</button>
+          <button class="key" onclick="kpAdd(9)">9</button>
+          <button class="key" onclick="kpAdd(4)">4</button>
+          <button class="key" onclick="kpAdd(5)">5</button>
+          <button class="key" onclick="kpAdd(6)">6</button>
+          <button class="key" onclick="kpAdd(1)">1</button>
+          <button class="key" onclick="kpAdd(2)">2</button>
+          <button class="key" onclick="kpAdd(3)">3</button>
+          <button class="key key-clear" onclick="kpClear()">CLR</button>
+          <button class="key" onclick="kpAdd(0)">0</button>
+          <button class="key key-enter" onclick="kpEnter()">ENT</button>
+          <button class="key key-cancel" style="grid-column: span 3;" onclick="kpClose()">CANCEL</button>
+        </div>
+      </div>
+    </div>
   </main>
   <script>
     const statusEl = document.getElementById('status');
