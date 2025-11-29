@@ -708,10 +708,6 @@ CONTROLS_PAGE = """
       kpClose();
     }
     
-      sendCmd(currentTag, val);
-      kpClose();
-    }
-    
     // Hardening: Disable context menu and dragging
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('dragstart', event => event.preventDefault());
