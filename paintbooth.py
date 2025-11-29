@@ -200,21 +200,17 @@ PAGE = """
         }
       }
 
-      // Determine and display mode (Auto/Manual) based on mode bits
+      // Determine and display mode (Auto/Manual) based on Bake Active bit (M[0].11)
       let isAuto = false;
-      if (vals.hasOwnProperty("M[1].4") && vals.hasOwnProperty("M[1].5")) {
+      if (vals.hasOwnProperty("M[0].11")) {
         const modeEl = document.getElementById('mode');
         if (modeEl) {
-          const autoMode = vals["M[1].4"];
-          const manualMode = vals["M[1].5"];
-          if (autoMode === 1) {
+          const bakeActive = vals["M[0].11"];
+          if (bakeActive === 1) {
             modeEl.textContent = "AUTO";
             isAuto = true;
-          } else if (manualMode === 1) {
-            modeEl.textContent = "MANUAL";
-            isAuto = false;
           } else {
-            modeEl.textContent = "—";
+            modeEl.textContent = "MANUAL";
             isAuto = false;
           }
         }
@@ -551,9 +547,9 @@ CONTROLS_PAGE = """
       document.getElementById('btn_lights_off').className = 'toggle-btn ' + (!lightsOn ? 'active-red' : '');
       document.getElementById('status_lights').textContent = lightsOn ? "ON" : "OFF";
       
-      // Mode (M[1].4 Auto, M[1].5 Manual)
-      const isAuto = vals['M[1].4'] === 1;
-      const isManual = vals['M[1].5'] === 1;
+      // Mode (M[0].11 Bake Active = Auto, else Manual)
+      const isAuto = vals['M[0].11'] === 1;
+      const isManual = !isAuto;
       document.getElementById('btn_mode_auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
       document.getElementById('btn_mode_manual').className = 'toggle-btn ' + (isManual ? 'active' : '');
     }
