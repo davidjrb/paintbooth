@@ -24,6 +24,10 @@ TAGS = [
     "W00[15]",      # Spray Temperature Setpoint (INT, scaled x100)
     "M[40].2",      # Purge Cycle ON
     "M[0].9",       # System Ready
+    "M[2].0",       # Center Door Switch Not Active
+    "R000.3",       # Exhaust Fan 1 Air Proving
+    "M[0].5",       # Supply Fan 1 High Air Pressure Good
+    "M[0].6",       # Supply Fan 1 Low Air Pressure Good
 ]
 POLL_SEC = 1.0  # polling interval in seconds
 
@@ -146,10 +150,10 @@ PAGE = """
         </tr>
       </thead>
       <tbody id="rows">
+        <tr><td class="status-cell"><div id="s_M_0_9" class="status-indicator"></div></td><td class="tag"><a href="/troubleshoot" style="color:inherit; text-decoration:none; border-bottom:1px dotted #777;">System Ready</a></td>        <td class="val" id="M_0_9">—</td></tr>
         <tr><td class="status-cell"><div id="s_M_0_0" class="status-indicator"></div></td><td class="tag">System ON</td>           <td class="val" id="M_0_0">—</td></tr>
-        <tr><td class="status-cell"><div id="s_M_0_9" class="status-indicator"></div></td><td class="tag">System Ready</td>        <td class="val" id="M_0_9">—</td></tr>
-        <tr><td class="status-cell"><div id="s_M_40_2" class="status-indicator"></div></td><td class="tag">Purge Cycle</td>         <td class="val" id="M_40_2">—</td></tr>
         <tr><td class="status-cell"><div id="s_M_40_0" class="status-indicator"></div></td><td class="tag">Heat ENABLED</td>        <td class="val" id="M_40_0">—</td></tr>
+        <tr><td class="status-cell"><div id="s_M_40_2" class="status-indicator"></div></td><td class="tag">Purge Cycle</td>         <td class="val" id="M_40_2">—</td></tr>
         <tr><td class="status-cell"><div id="s_M_0_11" class="status-indicator"></div></td><td class="tag">Bake mode ACTIVE</td>    <td class="val" id="M_0_11">—</td></tr>
         <tr><td class="status-cell"><div id="s_B1_Bake_Time_ACC" class="status-indicator"></div></td><td class="tag">Bake Timer</td>          <td class="val" id="B1_Bake_Time_ACC">—</td></tr>
         <tr><td class="status-cell"><div id="s_W16_2" class="status-indicator"></div></td><td class="tag">Current Temperature</td> <td class="val" id="W16_2">—</td></tr>
@@ -299,6 +303,146 @@ PAGE = """
     connect();
     
     // Hardening: Disable context menu and dragging
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('dragstart', event => event.preventDefault());
+  </script>
+</body>
+</html>
+"""
+
+TROUBLESHOOT_PAGE = """
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Troubleshooting - Paint Booth 1</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root { color-scheme: dark; }
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      background: #0b0e13;
+      color: #e6e6e6;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      touch-action: none;
+      user-select: none;
+      cursor: default;
+    }
+    * { -webkit-tap-highlight-color: transparent; }
+    header { 
+      padding: 1vh 2vw; 
+      border-bottom: 1px solid #1f2430; 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+      flex-shrink: 0;
+      height: 10vh;
+    }
+    .back-btn {
+      background: #333;
+      color: white;
+      text-decoration: none;
+      padding: 2vh 3vw;
+      border-radius: 8px;
+      font-size: 2.5vh;
+      margin-right: 2vw;
+      border: 1px solid #444;
+    }
+    h1 { font-size: 4vh; margin: 0; color: #ff4444; }
+    main { 
+      flex-grow: 1; 
+      padding: 2vh 2vw; 
+      display: flex; 
+      flex-direction: column; 
+      overflow: hidden; 
+    }
+    table { 
+      width: 100%; 
+      border-collapse: separate; 
+      border-spacing: 0; 
+      border-radius: 14px; 
+      box-shadow: 0 6px 24px rgba(0,0,0,.35); 
+      background: #131826;
+    }
+    th, td { 
+      text-align: left; 
+      padding: 2vh 2vw; 
+      border-bottom: 1px solid #222735; 
+      font-size: 3vh;
+    }
+    th { background: #1a2030; font-weight: 600; color: #9fb0ff; }
+    tr:last-child td { border-bottom: none; }
+    .status-cell { width: 8vw; text-align: center; padding: 0; }
+    .status-indicator {
+      width: 3vh;
+      height: 3vh;
+      background: #333;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+    .status-on { background: #3fdc5a; box-shadow: 0 0 10px #3fdc5a; }
+    .status-off { background: #ff4444; box-shadow: 0 0 10px #ff4444; }
+    .tag { color: #b7c3ff; }
+    .val { color: #ffd28a; font-weight: bold; }
+    .desc { color: #7b8aa8; font-size: 2vh; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="back-btn">← BACK</a>
+    <h1>System Ready Diagnostics</h1>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th class="status-cell">Status</th>
+          <th>Permissive</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody id="rows">
+        <tr><td class="status-cell"><div id="s_M_0_0" class="status-indicator"></div></td><td class="tag">System ON</td><td class="desc">Main System Power</td></tr>
+        <tr><td class="status-cell"><div id="s_M_2_0" class="status-indicator"></div></td><td class="tag">Center Door</td><td class="desc">Switch must be NOT Active</td></tr>
+        <tr><td class="status-cell"><div id="s_R000_3" class="status-indicator"></div></td><td class="tag">Exhaust Fan</td><td class="desc">Air Proving Switch</td></tr>
+        <tr><td class="status-cell"><div id="s_M_0_5" class="status-indicator"></div></td><td class="tag">Supply Fan High</td><td class="desc">High Air Pressure Good</td></tr>
+        <tr><td class="status-cell"><div id="s_M_0_6" class="status-indicator"></div></td><td class="tag">Supply Fan Low</td><td class="desc">Low Air Pressure Good</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top: 2vh; color: #777; text-align: center; font-size: 2vh;">
+      All items above must be GREEN for System Ready to be active.
+    </div>
+  </main>
+  <script>
+    const ev = new EventSource("/stream");
+    ev.onmessage = (e) => {
+      try {
+        const data = JSON.parse(e.data);
+        if (data.values) updateUI(data.values);
+      } catch (err) {}
+    };
+
+    function updateStatusIndicator(id, isGreen) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.className = 'status-indicator ' + (isGreen ? 'status-on' : 'status-off');
+      }
+    }
+
+    function updateUI(vals) {
+      updateStatusIndicator('s_M_0_0', vals['M[0].0'] === 1);
+      updateStatusIndicator('s_M_2_0', vals['M[2].0'] === 1);
+      updateStatusIndicator('s_R000_3', vals['R000.3'] === 1);
+      updateStatusIndicator('s_M_0_5', vals['M[0].5'] === 1);
+      updateStatusIndicator('s_M_0_6', vals['M[0].6'] === 1);
+    }
+    
+    // Hardening
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('dragstart', event => event.preventDefault());
   </script>
@@ -735,6 +879,10 @@ def index():
 @app.route("/controls")
 def controls():
     return render_template_string(CONTROLS_PAGE)
+
+@app.route("/troubleshoot")
+def troubleshoot():
+    return render_template_string(TROUBLESHOOT_PAGE)
 
 @app.route("/write", methods=["POST"])
 def write_tag():
