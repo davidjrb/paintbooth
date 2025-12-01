@@ -680,15 +680,10 @@ CONTROLS_PAGE = """
     <div class="card">
       <div class="card-title">Mode</div>
       <div class="btn-group">
-        <div style="display:flex; flex-direction:column; align-items:center;">
-          <button class="toggle-btn" id="btn_mode_auto" onclick="sendCmd('M[1].4', 1, true)">AUTO</button>
-          <span style="font-size:1.5vh; color:#777; margin-top:0.5vh;">Restart Bake</span>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center;">
-          <button class="toggle-btn" id="btn_mode_manual" onclick="sendCmd('M[1].5', 1, true)">MANUAL</button>
-          <span style="font-size:1.5vh; color:#777; margin-top:0.5vh;">End Bake</span>
-        </div>
+        <button class="toggle-btn" id="btn-auto" onclick="sendCmd('M[1].3', 1)">AUTO</button>
+        <button class="toggle-btn" id="btn-manual" onclick="sendCmd('M[1].2', 1)">MANUAL</button>
       </div>
+      <div style="margin-top: 1vh; font-size: 1.5vh; color: #777;">Status: <span id="s_mode">--</span></div>
     </div>
     
     <!-- 5. Cooldown Timer -->
@@ -782,6 +777,14 @@ CONTROLS_PAGE = """
       } catch (err) {}
     };
 
+    function updateStatusIndicator(id, isActive) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.textContent = isActive ? "ON" : "OFF";
+        el.style.color = isActive ? "#3fdc5a" : "#ff4444";
+      }
+    }
+
     function updateUI(vals) {
       // Bake Timer (B1_Bake_Time)
       if (vals.B1_Bake_Time !== undefined) {
@@ -817,7 +820,6 @@ CONTROLS_PAGE = """
       
       // Mode (M[0].11 Bake Active = Auto, else Manual)
       const isAuto = vals['M[0].11'] === 1;
-      const isManual = !isAuto;
       document.getElementById('btn_mode_auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
       document.getElementById('btn_mode_manual').className = 'toggle-btn ' + (isManual ? 'active' : '');
 
