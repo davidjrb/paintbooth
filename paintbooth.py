@@ -703,6 +703,9 @@ CONTROLS_PAGE = """
           <button class="toggle-btn" id="btn_bake_cancel" onclick="sendCmd('M[40].14', 1, true)">CANCEL</button>
         </div>
       </div>
+        </div>
+      </div>
+      <div style="margin-top: 1vh; font-size: 1.5vh; color: #777;">Status: <span id="s_bake">--</span></div>
     </div>
   </main>
 
@@ -819,13 +822,29 @@ CONTROLS_PAGE = """
       document.getElementById('status_lights').textContent = lightsOn ? "ON" : "OFF";
       
       // Mode (M[0].11 Bake Active = Auto, else Manual)
-      const isAuto = vals['M[0].11'] === 1;
-      document.getElementById('btn-auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
-      document.getElementById('btn-manual').className = 'toggle-btn ' + (!isAuto ? 'active' : '');
+      // Note: M[0].11 is actually "Bake Active". The "Auto/Manual" concept is tied to this.
+      // If Bake is Active, we are in "Auto" mode (sort of).
+      // Let's clarify: M[0].11 = 1 means Bake Cycle is Running.
+      const isBake = vals['M[0].11'] === 1;
+      
+      // Update Mode Buttons (Auto/Manual) - Assuming Auto=Bake Active for now based on previous logic, 
+      // but user might see "Auto" as just "Ready to Bake". 
+      // Actually, let's stick to the previous mapping: Auto = Bake Active.
+      document.getElementById('btn-auto').className = 'toggle-btn ' + (isBake ? 'active' : '');
+      document.getElementById('btn-manual').className = 'toggle-btn ' + (!isBake ? 'active' : '');
+      document.getElementById('s_mode').textContent = isBake ? "AUTO (BAKE ACTIVE)" : "MANUAL (SPRAY)";
 
-      // Bake Cycle Buttons (M[0].11 Bake Active)
-      // User requested these be "stupid buttons" that are always clickable and don't change state visually.
-      // We removed the dynamic class update so they stay as defined in HTML.
+      // Bake Cycle Buttons
+      // Restore feedback: Green when Active, Grey when Inactive.
+      // Helper text clarifies status so Grey doesn't mean "Disabled".
+      document.getElementById('btn_bake_start').className = 'toggle-btn ' + (isBake ? 'active' : '');
+      document.getElementById('btn_bake_cancel').className = 'toggle-btn ' + (!isBake ? 'active-red' : '');
+      
+      const bakeStatusEl = document.getElementById('s_bake');
+      if (bakeStatusEl) {
+          bakeStatusEl.textContent = isBake ? "BAKE STARTED" : "BAKE NOT STARTED";
+          bakeStatusEl.style.color = isBake ? "#3fdc5a" : "#777";
+      }
     }
 
     // Keypad Logic
