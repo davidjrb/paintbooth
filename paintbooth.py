@@ -504,16 +504,16 @@ CONTROLS_PAGE = """
     h1 { font-size: 4vh; margin: 0; }
     main { 
       flex-grow: 1; 
-      padding: 2vh; 
+      padding: 1.5vh; 
       display: grid; 
-      grid-template-columns: 1fr 1fr 1fr; 
-      grid-template-rows: 1fr 1fr; 
-      gap: 2vh; 
+      grid-template-columns: repeat(4, 1fr); 
+      grid-template-rows: repeat(2, 1fr); 
+      gap: 1.5vh; 
     }
     .card {
       background: #131826;
       border-radius: 12px;
-      padding: 2vh;
+      padding: 1.5vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -522,31 +522,31 @@ CONTROLS_PAGE = """
       position: relative;
     }
     .card-title {
-      font-size: 2.5vh;
+      font-size: 2.2vh;
       color: #9fb0ff;
-      margin-bottom: 2vh;
+      margin-bottom: 1.5vh;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     .value-display {
-      font-size: 5vh;
+      font-size: 4vh;
       color: #ffd28a;
       font-weight: bold;
       cursor: pointer;
-      padding: 3vh; /* Increased from 1vh 2vw */
+      padding: 2vh;
       border: 1px solid #333;
       border-radius: 8px;
       background: #1a2030;
-      min-width: 15vw;
+      min-width: 10vw;
       text-align: center;
     }
     .value-display:active { background: #252d40; }
     
     .btn-group { display: flex; gap: 1vw; }
     .toggle-btn {
-      padding: 3vh 4vw; /* Increased from 2vh 3vw */
-      font-size: 3.5vh; /* Increased from 2.5vh */
-      min-width: 12vw;
+      padding: 2vh 2vw;
+      font-size: 2.5vh;
+      min-width: 8vw;
       border: none;
       border-radius: 8px;
       cursor: pointer;
