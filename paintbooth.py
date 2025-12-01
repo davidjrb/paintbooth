@@ -396,6 +396,7 @@ TROUBLESHOOT_PAGE = """
     .status-on { background: #3fdc5a; box-shadow: 0 0 10px #3fdc5a; }
     .status-off { background: #ff4444; box-shadow: 0 0 10px #ff4444; }
     .tag { color: #b7c3ff; }
+    .tag-name { color: #777; font-family: monospace; font-size: 2.5vh; }
     .val { color: #ffd28a; font-weight: bold; }
     .desc { color: #7b8aa8; font-size: 2vh; }
   </style>
@@ -410,16 +411,17 @@ TROUBLESHOOT_PAGE = """
       <thead>
         <tr>
           <th class="status-cell">Status</th>
+          <th>Tag</th>
           <th>Permissive</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody id="rows">
-        <tr><td class="status-cell"><div id="s_M_0_0" class="status-indicator"></div></td><td class="tag">System ON</td><td class="desc">Main System Power</td></tr>
-        <tr><td class="status-cell"><div id="s_M_2_0" class="status-indicator"></div></td><td class="tag">Center Door</td><td class="desc">Switch must be NOT Active</td></tr>
-        <tr><td class="status-cell"><div id="s_R000_3" class="status-indicator"></div></td><td class="tag">Exhaust Fan</td><td class="desc">Air Proving Switch</td></tr>
-        <tr><td class="status-cell"><div id="s_M_0_5" class="status-indicator"></div></td><td class="tag">Supply Fan High</td><td class="desc">High Air Pressure Good</td></tr>
-        <tr><td class="status-cell"><div id="s_M_0_6" class="status-indicator"></div></td><td class="tag">Supply Fan Low</td><td class="desc">Low Air Pressure Good</td></tr>
+        <tr><td class="status-cell"><div id="s_M_0_0" class="status-indicator"></div></td><td class="tag-name">M[0].0</td><td class="tag">System ON</td><td class="desc">Main System Power</td></tr>
+        <tr><td class="status-cell"><div id="s_M_2_0" class="status-indicator"></div></td><td class="tag-name">M[2].0</td><td class="tag">Center Door</td><td class="desc">Switch must be NOT Active</td></tr>
+        <tr><td class="status-cell"><div id="s_R000_3" class="status-indicator"></div></td><td class="tag-name">R000.3</td><td class="tag">Supply Fan 1</td><td class="desc">Fan Input (1M-2)</td></tr>
+        <tr><td class="status-cell"><div id="s_M_0_5" class="status-indicator"></div></td><td class="tag-name">M[0].5</td><td class="tag">Supply Fan High</td><td class="desc">High Air Pressure Good</td></tr>
+        <tr><td class="status-cell"><div id="s_M_0_6" class="status-indicator"></div></td><td class="tag-name">M[0].6</td><td class="tag">Supply Fan Low</td><td class="desc">Low Air Pressure Good</td></tr>
       </tbody>
     </table>
     <div style="margin-top: 2vh; color: #777; text-align: center; font-size: 2vh;">
