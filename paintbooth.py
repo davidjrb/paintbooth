@@ -30,6 +30,8 @@ TAGS = [
     "M[0].6",       # Supply Fan 1 Low Air Pressure Good
     "W00[13]",      # Bake Temperature Setpoint (INT, scaled x100)
     "B1_Purge_Time", # Purge Timer Preset (REAL, minutes)
+    "M[1].4",       # Auto Mode Status
+    "M[1].5",       # Manual Mode Status
 ]
 POLL_SEC = 1.0  # polling interval in seconds
 
@@ -821,22 +823,26 @@ CONTROLS_PAGE = """
       document.getElementById('btn_lights_off').className = 'toggle-btn ' + (!lightsOn ? 'active-red' : '');
       document.getElementById('status_lights').textContent = lightsOn ? "ON" : "OFF";
       
-      // Mode (M[0].11 Bake Active = Auto, else Manual)
-      // Note: M[0].11 is actually "Bake Active". The "Auto/Manual" concept is tied to this.
-      // If Bake is Active, we are in "Auto" mode (sort of).
-      // Let's clarify: M[0].11 = 1 means Bake Cycle is Running.
-      const isBake = vals['M[0].11'] === 1;
+      // Mode (M[1].4 = Auto, M[1].5 = Manual)
+      // User clarified: Auto/Manual is about system restart behavior, not Bake Active.
+      // We now use the actual status bits from the PLC.
+      const isAutoMode = vals['M[1].4'] === 1;
+      const isManualMode = vals['M[1].5'] === 1;
       
-      // Update Mode Buttons (Auto/Manual) - Assuming Auto=Bake Active for now based on previous logic, 
-      // but user might see "Auto" as just "Ready to Bake". 
-      // Actually, let's stick to the previous mapping: Auto = Bake Active.
-      document.getElementById('btn-auto').className = 'toggle-btn ' + (isBake ? 'active' : '');
-      document.getElementById('btn-manual').className = 'toggle-btn ' + (!isBake ? 'active' : '');
-      document.getElementById('s_mode').textContent = isBake ? "AUTO (BAKE ACTIVE)" : "MANUAL (SPRAY)";
+      document.getElementById('btn-auto').className = 'toggle-btn ' + (isAutoMode ? 'active' : '');
+      document.getElementById('btn-manual').className = 'toggle-btn ' + (isManualMode ? 'active' : '');
+      
+      const modeStatusEl = document.getElementById('s_mode');
+      if (modeStatusEl) {
+          if (isAutoMode) modeStatusEl.textContent = "AUTO";
+          else if (isManualMode) modeStatusEl.textContent = "MANUAL";
+          else modeStatusEl.textContent = "OFF / UNKNOWN";
+      }
 
       // Bake Cycle Buttons
       // Restore feedback: Green when Active, Grey when Inactive.
       // Helper text clarifies status so Grey doesn't mean "Disabled".
+      const isBake = vals['M[0].11'] === 1;
       document.getElementById('btn_bake_start').className = 'toggle-btn ' + (isBake ? 'active' : '');
       document.getElementById('btn_bake_cancel').className = 'toggle-btn ' + (!isBake ? 'active-red' : '');
       
