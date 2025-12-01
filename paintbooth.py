@@ -230,19 +230,22 @@ PAGE = """
         }
       }
 
-      // Determine and display mode (Auto/Manual) based on Bake Active bit (M[0].11)
+      // Determine and display mode (Auto/Manual) based on PLC status bits M[1].4 / M[1].5
       let isAuto = false;
-      if (vals.hasOwnProperty("M[0].11")) {
-        const modeEl = document.getElementById('mode');
-        if (modeEl) {
-          const bakeActive = vals["M[0].11"];
-          if (bakeActive === 1) {
-            modeEl.textContent = "AUTO";
-            isAuto = true;
-          } else {
-            modeEl.textContent = "MANUAL";
-            isAuto = false;
-          }
+      const modeEl = document.getElementById('mode');
+      if (modeEl) {
+        const isAutoMode = vals['M[1].4'] === 1;
+        const isManualMode = vals['M[1].5'] === 1;
+        
+        if (isAutoMode) {
+          modeEl.textContent = "AUTO";
+          isAuto = true;
+        } else if (isManualMode) {
+          modeEl.textContent = "MANUAL";
+          isAuto = false;
+        } else {
+          modeEl.textContent = "OFF / UNKNOWN";
+          isAuto = false;
         }
       }
       
