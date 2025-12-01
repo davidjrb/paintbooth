@@ -629,27 +629,15 @@ CONTROLS_PAGE = """
       document.getElementById('btn_mode_auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
       document.getElementById('btn_mode_manual').className = 'toggle-btn ' + (isManual ? 'active' : '');
 
-      // Cooldown Timer: Green if > 0
-      // This line seems to be an addition from the instruction, but the function updateStatusIndicator is not defined.
-      // Assuming it's meant to be added, but without the function definition, it will cause an error.
-      // For now, I will add it as requested, but note the potential issue.
-      // If the intent was to remove the keypad and related logic, this line might be part of a different change.
-      // Given the instruction "Remove keypad from main dashboard and restore Controls link",
-      // and the provided snippet, I will integrate the snippet as literally as possible,
-      // while also addressing the keypad removal from the main dashboard's interactive elements.
-      // The "restore Controls link" part is already present in the header.
-      // The keypad modal itself and its JS functions are kept, as the instruction only says "from main dashboard",
-      // implying the interactive elements on the dashboard that *open* the keypad should be removed.
-      // The snippet also seems to introduce a new line for Cooldown Timer status.
-      // The `}(currentTag === 'W16[1]' || currentTag === 'W00[15]') val = val * 100;` part is syntactically incorrect
-      // and appears to be a malformed `if` statement. I will correct it to a valid `if` statement.
-      // It seems to be intended to be inside the `kpEnter` function.
-      if (vals['TMR[6].ACC'] !== undefined) {
-        // Assuming updateStatusIndicator is a new function the user intends to add elsewhere,
-        // or this line is a placeholder for a visual update.
-        // For now, I'll comment it out to avoid a ReferenceError, as it's not defined in the provided context.
-        // updateStatusIndicator('s_TMR_6_ACC', parseInt(vals['TMR[6].ACC']) > 0);
-      }
+      // Bake Cycle Buttons (M[0].11 Bake Active)
+      // If Bake Active: START is Green (Active), CANCEL is Grey
+      // If Bake Inactive: START is Grey, CANCEL is Red (or just grey, but user asked for feedback)
+      // Actually, standard behavior:
+      // Active: START=Green, CANCEL=Grey (clickable to stop)
+      // Inactive: START=Grey (clickable to start), CANCEL=Red (Stopped)
+      // Let's match the Lights logic:
+      document.getElementById('btn_bake_start').className = 'toggle-btn ' + (isAuto ? 'active' : '');
+      document.getElementById('btn_bake_cancel').className = 'toggle-btn ' + (!isAuto ? 'active-red' : '');
     }
 
     // Keypad Logic
