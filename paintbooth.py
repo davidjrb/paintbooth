@@ -28,6 +28,8 @@ TAGS = [
     "R000.3",       # Exhaust Fan 1 Air Proving
     "M[0].5",       # Supply Fan 1 High Air Pressure Good
     "M[0].6",       # Supply Fan 1 Low Air Pressure Good
+    "W00[13]",      # Bake Temperature Setpoint (INT, scaled x100)
+    "B1_Purge_Time", # Purge Timer Preset (REAL, minutes)
 ]
 POLL_SEC = 1.0  # polling interval in seconds
 
@@ -157,7 +159,8 @@ PAGE = """
         <tr><td class="status-cell"><div id="s_M_0_11" class="status-indicator"></div></td><td class="tag">Bake mode ACTIVE</td>    <td class="val" id="M_0_11">—</td></tr>
         <tr><td class="status-cell"><div id="s_B1_Bake_Time_ACC" class="status-indicator"></div></td><td class="tag">Bake Timer</td>          <td class="val" id="B1_Bake_Time_ACC">—</td></tr>
         <tr><td class="status-cell"><div id="s_W16_2" class="status-indicator"></div></td><td class="tag">Current Temperature</td> <td class="val" id="W16_2">—</td></tr>
-        <tr><td class="status-cell"><div id="s_W16_1" class="status-indicator"></div></td><td class="tag">Temperature Setpoint</td><td class="val" id="W16_1">—</td></tr>
+        <tr><td class="status-cell"><div id="s_W00_15" class="status-indicator"></div></td><td class="tag">Spray Setpoint</td>      <td class="val" id="W00_15">—</td></tr>
+        <tr><td class="status-cell"><div id="s_W00_13" class="status-indicator"></div></td><td class="tag">Bake Setpoint</td>       <td class="val" id="W00_13">—</td></tr>
         <tr><td class="status-cell"><div id="s_mode" class="status-indicator"></div></td><td class="tag">Mode (Auto/Manual)</td>  <td class="val" id="mode">—</td></tr>
         <tr><td class="status-cell"><div id="s_M_40_4" class="status-indicator"></div></td><td class="tag">Cooldown ACTIVE</td>     <td class="val" id="M_40_4">—</td></tr>
         <tr><td class="status-cell"><div id="s_TMR_6_ACC" class="status-indicator"></div></td><td class="tag">Cooldown Timer</td>      <td class="val" id="TMR_6_ACC">—</td></tr>
@@ -202,9 +205,11 @@ PAGE = """
           let s = Math.floor(totalSec % 60);
           el.textContent = m + ":" + s.toString().padStart(2, '0') + " min";
           continue;
-        } else if (tag === "W16[1]" || tag === "W16[2]") {
+        } else if (tag === "W16[1]" || tag === "W16[2]" || tag === "W00[15]" || tag === "W00[13]") {
           // Temperature setpoint/current: divide by 100 to get one decimal + °F
           el.textContent = (parseInt(val) / 100.0).toFixed(1) + " °F";
+        } else if (tag === "B1_Purge_Time") {
+             el.textContent = parseFloat(val).toFixed(1) + " min";
         } else {
           // Booleans or other values: show as ON/OFF if boolean, or numeric directly
           if (tag === "M[0].9") {
@@ -258,14 +263,17 @@ PAGE = """
       // Bake Timer: Green if > 0
       updateStatusIndicator('s_B1_Bake_Time_ACC', parseFloat(vals['B1_Bake_Time_ACC']) > 0);
       
-      // Current Temperature: Green if >= Setpoint
+      // Current Temperature: Green if >= Setpoint (using active setpoint W16[1])
       // Note: Values are scaled integers (e.g. 12000 = 120.00). Comparison works directly.
       let curTemp = parseInt(vals['W16[2]'] || 0);
       let spTemp = parseInt(vals['W16[1]'] || 0);
       updateStatusIndicator('s_W16_2', curTemp >= spTemp);
       
-      // Temperature Setpoint: Green when Bake mode ACTIVE ON
-      updateStatusIndicator('s_W16_1', vals['M[0].11'] === 1);
+      // Spray Setpoint: Green when Bake mode is OFF (Manual/Spray)
+      updateStatusIndicator('s_W00_15', vals['M[0].11'] !== 1);
+
+      // Bake Setpoint: Green when Bake mode is ACTIVE
+      updateStatusIndicator('s_W00_13', vals['M[0].11'] === 1);
       
       // Mode: Green when AUTO
       updateStatusIndicator('s_mode', isAuto);
@@ -638,13 +646,25 @@ CONTROLS_PAGE = """
       <div class="value-display" onclick="openKeypad('B1_Bake_Time', 'Bake Timer (min)')" id="disp_B1_Bake_Time">--</div>
     </div>
     
-    <!-- 2. Temp Setpoint -->
+    <!-- 2. Spray Setpoint -->
     <div class="card">
-      <div class="card-title">Temp Setpoint</div>
-      <div class="value-display" onclick="openKeypad('W00[15]', 'Setpoint (°F)')" id="disp_W00_15">--</div>
+      <div class="card-title">Spray Setpoint</div>
+      <div class="value-display" onclick="openKeypad('W00[15]', 'Spray Setpoint (°F)')" id="disp_W00_15">--</div>
+    </div>
+
+    <!-- 3. Bake Setpoint -->
+    <div class="card">
+      <div class="card-title">Bake Setpoint</div>
+      <div class="value-display" onclick="openKeypad('W00[13]', 'Bake Setpoint (°F)')" id="disp_W00_13">--</div>
+    </div>
+
+    <!-- 4. Purge Timer -->
+    <div class="card">
+      <div class="card-title">Purge Timer</div>
+      <div class="value-display" onclick="openKeypad('B1_Purge_Time', 'Purge Time (min)')" id="disp_B1_Purge_Time">--</div>
     </div>
     
-    <!-- 3. Lights -->
+    <!-- 5. Lights -->
     <div class="card">
       <div class="card-title">Lights</div>
       <div class="btn-group">
@@ -766,9 +786,19 @@ CONTROLS_PAGE = """
         document.getElementById('disp_B1_Bake_Time').textContent = parseFloat(vals.B1_Bake_Time).toFixed(1) + " min";
       }
       
-      // Temp Setpoint (W00[15]) - scaled x100
+      // Spray Setpoint (W00[15]) - scaled x100
       if (vals['W00[15]'] !== undefined) {
         document.getElementById('disp_W00_15').textContent = (vals['W00[15]'] / 100).toFixed(1) + " °F";
+      }
+
+      // Bake Setpoint (W00[13]) - scaled x100
+      if (vals['W00[13]'] !== undefined) {
+        document.getElementById('disp_W00_13').textContent = (vals['W00[13]'] / 100).toFixed(1) + " °F";
+      }
+
+      // Purge Timer (B1_Purge_Time) - minutes
+      if (vals['B1_Purge_Time'] !== undefined) {
+        document.getElementById('disp_B1_Purge_Time').textContent = parseFloat(vals['B1_Purge_Time']).toFixed(1) + " min";
       }
       
       // Cooldown (TMR[6].PRE) - ms to min
@@ -847,10 +877,11 @@ CONTROLS_PAGE = """
       let val = parseFloat(currentValStr);
       
       // Conversions before sending
-      if (currentTag === 'W16[1]' || currentTag === 'W00[15]') { 
+      if (currentTag === 'W16[1]' || currentTag === 'W00[15]' || currentTag === 'W00[13]') { 
         val = val * 100; // °F -> Scaled
       }
       if (currentTag === 'TMR[6].PRE') val = val * 60000; // min -> ms
+      // B1_Purge_Time is already in minutes, no conversion needed.
       
       sendCmd(currentTag, val);
       kpClose();
