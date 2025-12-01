@@ -708,8 +708,6 @@ CONTROLS_PAGE = """
           <button class="toggle-btn" id="btn_bake_cancel" onclick="sendCmd('M[40].14', 1, true)">CANCEL</button>
         </div>
       </div>
-        </div>
-      </div>
       <div style="margin-top: 1vh; font-size: 1.5vh; color: #777;">Status: <span id="s_bake">--</span></div>
     </div>
   </main>
