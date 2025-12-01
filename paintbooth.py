@@ -824,14 +824,8 @@ CONTROLS_PAGE = """
       document.getElementById('btn-manual').className = 'toggle-btn ' + (!isAuto ? 'active' : '');
 
       // Bake Cycle Buttons (M[0].11 Bake Active)
-      // If Bake Active: START is Green (Active), CANCEL is Grey
-      // If Bake Inactive: START is Grey, CANCEL is Red (or just grey, but user asked for feedback)
-      // Actually, standard behavior:
-      // Active: START=Green, CANCEL=Grey (clickable to stop)
-      // Inactive: START=Grey (clickable to start), CANCEL=Red (Stopped)
-      // Let's match the Lights logic:
-      document.getElementById('btn_bake_start').className = 'toggle-btn ' + (isAuto ? 'active' : '');
-      document.getElementById('btn_bake_cancel').className = 'toggle-btn ' + (!isAuto ? 'active-red' : '');
+      // User requested these be "stupid buttons" that are always clickable and don't change state visually.
+      // We removed the dynamic class update so they stay as defined in HTML.
     }
 
     // Keypad Logic
