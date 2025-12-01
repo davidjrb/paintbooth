@@ -685,8 +685,8 @@ CONTROLS_PAGE = """
     <div class="card">
       <div class="card-title">Mode</div>
       <div class="btn-group">
-        <button class="toggle-btn" id="btn-auto" onclick="sendCmd('M[1].3', 1)">AUTO</button>
-        <button class="toggle-btn" id="btn-manual" onclick="sendCmd('M[1].2', 1)">MANUAL</button>
+        <button class="toggle-btn" id="btn-auto" onclick="sendCmd('M[1].3', 1, true)">AUTO</button>
+        <button class="toggle-btn" id="btn-manual" onclick="sendCmd('M[1].2', 1, true)">MANUAL</button>
       </div>
       <div style="margin-top: 1vh; font-size: 1.5vh; color: #777;">Status: <span id="s_mode">--</span></div>
     </div>
