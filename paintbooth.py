@@ -22,6 +22,8 @@ TAGS = [
     "M[0].15",      # Lights OFF Command
     "TMR[6].PRE",   # Cooldown Timer Preset (DINT, ms)
     "W00[15]",      # Spray Temperature Setpoint (INT, scaled x100)
+    "M[40].2",      # Purge Cycle ON
+    "M[0].9",       # System Ready
 ]
 POLL_SEC = 1.0  # polling interval in seconds
 
@@ -145,6 +147,8 @@ PAGE = """
       </thead>
       <tbody id="rows">
         <tr><td class="status-cell"><div id="s_M_0_0" class="status-indicator"></div></td><td class="tag">System ON</td>           <td class="val" id="M_0_0">—</td></tr>
+        <tr><td class="status-cell"><div id="s_M_0_9" class="status-indicator"></div></td><td class="tag">System Ready</td>        <td class="val" id="M_0_9">—</td></tr>
+        <tr><td class="status-cell"><div id="s_M_40_2" class="status-indicator"></div></td><td class="tag">Purge Cycle</td>         <td class="val" id="M_40_2">—</td></tr>
         <tr><td class="status-cell"><div id="s_M_40_0" class="status-indicator"></div></td><td class="tag">Heat ENABLED</td>        <td class="val" id="M_40_0">—</td></tr>
         <tr><td class="status-cell"><div id="s_M_0_11" class="status-indicator"></div></td><td class="tag">Bake mode ACTIVE</td>    <td class="val" id="M_0_11">—</td></tr>
         <tr><td class="status-cell"><div id="s_B1_Bake_Time_ACC" class="status-indicator"></div></td><td class="tag">Bake Timer</td>          <td class="val" id="B1_Bake_Time_ACC">—</td></tr>
@@ -199,7 +203,13 @@ PAGE = """
           el.textContent = (parseInt(val) / 100.0).toFixed(1) + " °F";
         } else {
           // Booleans or other values: show as ON/OFF if boolean, or numeric directly
-          if (val === 1) {
+          if (tag === "M[0].9") {
+             el.textContent = (val === 1) ? "READY" : "NOT READY";
+             el.style.color = (val === 1) ? "#3fdc5a" : "#ff4444";
+          } else if (tag === "M[40].2") {
+             el.textContent = (val === 1) ? "ACTIVE" : "OFF";
+             el.style.color = (val === 1) ? "#3fdc5a" : "#777";
+          } else if (val === 1) {
             el.textContent = "ON";
           } else if (val === 0) {
             el.textContent = "OFF";
@@ -228,6 +238,12 @@ PAGE = """
       // Update Status Indicators
       // System ON: Green if ON (1)
       updateStatusIndicator('s_M_0_0', vals['M[0].0'] === 1);
+      
+      // System Ready: Green if ON (1)
+      updateStatusIndicator('s_M_0_9', vals['M[0].9'] === 1);
+
+      // Purge Cycle: Green if ON (1)
+      updateStatusIndicator('s_M_40_2', vals['M[40].2'] === 1);
       
       // Heat ENABLED: Green if ON (1)
       updateStatusIndicator('s_M_40_0', vals['M[40].0'] === 1);
