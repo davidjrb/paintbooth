@@ -820,8 +820,8 @@ CONTROLS_PAGE = """
       
       // Mode (M[0].11 Bake Active = Auto, else Manual)
       const isAuto = vals['M[0].11'] === 1;
-      document.getElementById('btn_mode_auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
-      document.getElementById('btn_mode_manual').className = 'toggle-btn ' + (isManual ? 'active' : '');
+      document.getElementById('btn-auto').className = 'toggle-btn ' + (isAuto ? 'active' : '');
+      document.getElementById('btn-manual').className = 'toggle-btn ' + (!isAuto ? 'active' : '');
 
       // Bake Cycle Buttons (M[0].11 Bake Active)
       // If Bake Active: START is Green (Active), CANCEL is Grey
